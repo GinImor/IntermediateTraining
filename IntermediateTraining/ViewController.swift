@@ -13,7 +13,14 @@ class ViewController: UITableViewController {
   enum ID {
     static let cell = "CellID"
   }
-    
+  
+  let companies: [Company] = [
+    Company(name: "Apple", founded: Date()),
+    Company(name: "Google", founded: Date()),
+    Company(name: "Fackbook", founded: Date()),
+  ]
+  
+  
   // MARK: - View Controller Life Cycle
   
   override func viewDidLoad() {
@@ -28,7 +35,6 @@ class ViewController: UITableViewController {
   // MARK: - Configure Navigation Bar
   
   private func configureNavigationBar() {
-    configureBarAppearanceForNavigationController()
     populateContentToNavigationBar()
   }
   
@@ -47,7 +53,6 @@ class ViewController: UITableViewController {
     let navigationBar = navigationController?.navigationBar
     let standardAppearance = navigationBar?.standardAppearance
     
-    navigationItem.title = "Companies"
     navigationBar?.prefersLargeTitles = true
     
     standardAppearance?.backgroundColor = .lightRed
@@ -95,13 +100,14 @@ class ViewController: UITableViewController {
   // MARK: - Table View Data Source
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 8
+    return companies.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: ID.cell, for: indexPath)
+    let company = companies[indexPath.row]
     
-    cell.textLabel?.text = "Company Name"
+    cell.textLabel?.text = company.name
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     cell.textLabel?.textColor = .white
     cell.backgroundColor = .tealColor

@@ -13,6 +13,7 @@
 		DC09071E25C4F083001A1D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC09071D25C4F083001A1D29 /* Assets.xcassets */; };
 		DC09072125C4F083001A1D29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC09071F25C4F083001A1D29 /* LaunchScreen.storyboard */; };
 		DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */; };
+		DC09072B25C58FB6001A1D29 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072A25C58FB6001A1D29 /* Company.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DC09072025C4F083001A1D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC09072225C4F083001A1D29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+colorConstructor.swift"; sourceTree = "<group>"; };
+		DC09072A25C58FB6001A1D29 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				DC09071425C4F082001A1D29 /* AppDelegate.swift */,
 				DC09071625C4F082001A1D29 /* SceneDelegate.swift */,
 				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
+				DC09072A25C58FB6001A1D29 /* Company.swift */,
 				DC09071825C4F082001A1D29 /* ViewController.swift */,
 				DC09071D25C4F083001A1D29 /* Assets.xcassets */,
 				DC09071F25C4F083001A1D29 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 				DC09071925C4F082001A1D29 /* ViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,
+				DC09072B25C58FB6001A1D29 /* Company.swift in Sources */,
 				DC09071725C4F082001A1D29 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

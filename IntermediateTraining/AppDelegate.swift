@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//    configureBarAppearance()
+    // remember to call the method !!!
+    configureBarAppearance()
     return true
   }
 
@@ -23,8 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let barStandardAppearance = UINavigationBarAppearance()
     
     barStandardAppearance.configureWithDefaultBackground()
-    barStandardAppearance.backgroundColor = .red
-    
+    barStandardAppearance.backgroundColor = .lightRed
+    barStandardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    barStandardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+    UINavigationBar.appearance().prefersLargeTitles = true
     UINavigationBar.appearance().standardAppearance = barStandardAppearance
     // used when navigation associated with a scroll view,
     // for large title navigation bar even it does not have scroll view
