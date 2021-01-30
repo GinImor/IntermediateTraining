@@ -3,7 +3,7 @@
 //  IntermediateTraining
 //
 //  Created by Gin Imor on 1/30/21.
-//  Copyright © 2021 Brevity. All rights reserved..
+//  Copyright © 2021 Brevity. All rights reserved.
 //
 
 import UIKit
@@ -21,10 +21,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
-    window?.rootViewController = ViewController()
+    window?.rootViewController = createNavigationController()
     window?.makeKeyAndVisible()
   }
 
+  private func createNavigationController() -> UINavigationController {
+    let navigationController = UINavigationController(rootViewController: ViewController())
+    return navigationController
+  }
+  
   func sceneDidDisconnect(_ scene: UIScene) {
     // Called as the scene is being released by the system.
     // This occurs shortly after the scene enters the background, or when its session is discarded.
