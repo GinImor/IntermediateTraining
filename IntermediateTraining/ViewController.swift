@@ -8,16 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
+  enum ID {
+    static let cell = "CellID"
+  }
+    
+  // MARK: - View Controller Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    view.backgroundColor = .white
+    setupTableView()
     configureNavigationBar()
   }
 
+  
+  // MARK: - Configure Navigation Bar
+  
   private func configureNavigationBar() {
     configureBarAppearanceForNavigationController()
     populateContentToNavigationBar()
@@ -41,8 +50,7 @@ class ViewController: UIViewController {
     navigationItem.title = "Companies"
     navigationBar?.prefersLargeTitles = true
     
-    let lightRed = UIColor(rgb: (247, 66, 82))
-    standardAppearance?.backgroundColor = lightRed
+    standardAppearance?.backgroundColor = .lightRed
     standardAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white]
     standardAppearance?.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     
@@ -59,5 +67,46 @@ class ViewController: UIViewController {
     navigationItem.compactAppearance = standardAppearance
     navigationItem.scrollEdgeAppearance = standardAppearance
   }
+  
+  
+  // MARK: - Set Up Table View
+  
+  private func setupTableView() {
+    tableView.backgroundColor = .darkBlue
+    tableView.separatorColor = .white
+    // void the table footer view so that no line appear at the bottom
+    tableView.tableFooterView = UIView()
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: ID.cell)
+  }
+  
+  // MARK: - Table View Delegate
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let headerView = UIView()
+    headerView.backgroundColor = .lightBlue
+    return headerView
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 50
+  }
+  
+  
+  // MARK: - Table View Data Source
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 8
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: ID.cell, for: indexPath)
+    
+    cell.textLabel?.text = "Company Name"
+    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+    cell.textLabel?.textColor = .white
+    cell.backgroundColor = .tealColor
+    return cell
+  }
+  
 }
 
