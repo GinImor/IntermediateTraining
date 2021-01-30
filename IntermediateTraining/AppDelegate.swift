@@ -21,12 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   private func configureBarAppearance() {
     // all navigation bar created with the custom appearance
+    let buttonAppearance = UIBarButtonItemAppearance()
     let barStandardAppearance = UINavigationBarAppearance()
+    
+    buttonAppearance.configureWithDefault(for: .plain)
+    buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
     
     barStandardAppearance.configureWithDefaultBackground()
     barStandardAppearance.backgroundColor = .lightRed
     barStandardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-    barStandardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//     barStandardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    barStandardAppearance.buttonAppearance = buttonAppearance
 
     UINavigationBar.appearance().prefersLargeTitles = true
     UINavigationBar.appearance().standardAppearance = barStandardAppearance

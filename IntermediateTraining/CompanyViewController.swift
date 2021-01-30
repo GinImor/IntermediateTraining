@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class CompanyViewController: UITableViewController {
 
   enum ID {
     static let cell = "CellID"
@@ -46,7 +46,8 @@ class ViewController: UITableViewController {
   }
   
   @objc func addCompany() {
-    //TODO
+    let addCompanyNavigationController = UINavigationController(rootViewController: AddCompanyController())
+    present(addCompanyNavigationController, animated: true)
   }
   
   private func configureBarAppearanceForNavigationController() {
