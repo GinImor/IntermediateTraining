@@ -43,8 +43,10 @@ class ViewController: UIViewController {
     
     let lightRed = UIColor(rgb: (247, 66, 82))
     standardAppearance?.backgroundColor = lightRed
+    standardAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white]
     standardAppearance?.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     
+    // doesn't need navigationBar?.compactAppearance = standardAppearance
     navigationBar?.scrollEdgeAppearance = standardAppearance
   }
 
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
     let standardAppearance = navigationBar?.standardAppearance.copy()
     // customize the appearance
     navigationItem.standardAppearance = standardAppearance
+    navigationItem.compactAppearance = standardAppearance
     navigationItem.scrollEdgeAppearance = standardAppearance
   }
 }
