@@ -41,7 +41,8 @@ class ViewController: UIViewController {
     navigationItem.title = "Companies"
     navigationBar?.prefersLargeTitles = true
     
-    standardAppearance?.backgroundColor = .red
+    let lightRed = UIColor(rgb: (247, 66, 82))
+    standardAppearance?.backgroundColor = lightRed
     standardAppearance?.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     
     navigationBar?.scrollEdgeAppearance = standardAppearance
