@@ -8,6 +8,10 @@
 
 import UIKit
 
+class lightStatusBarNavigationController: UINavigationController {
+  override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
@@ -25,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.makeKeyAndVisible()
   }
 
-  private func createNavigationController() -> UINavigationController {
-    let navigationController = UINavigationController(rootViewController: ViewController())
+  private func createNavigationController() -> lightStatusBarNavigationController {
+    let navigationController = lightStatusBarNavigationController(rootViewController: ViewController())
     return navigationController
   }
   
