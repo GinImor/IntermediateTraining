@@ -15,6 +15,7 @@
 		DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */; };
 		DC09072B25C58FB6001A1D29 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072A25C58FB6001A1D29 /* Company.swift */; };
 		DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072C25C5974E001A1D29 /* AddCompanyController.swift */; };
+		DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2342DB25C6979900C4E047 /* TextInputStackView.swift */; };
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+colorConstructor.swift"; sourceTree = "<group>"; };
 		DC09072A25C58FB6001A1D29 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		DC09072C25C5974E001A1D29 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
+		DC2342DB25C6979900C4E047 /* TextInputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputStackView.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
 				DC09072A25C58FB6001A1D29 /* Company.swift */,
 				DC09072C25C5974E001A1D29 /* AddCompanyController.swift */,
+				DC2342DB25C6979900C4E047 /* TextInputStackView.swift */,
 				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
 				DC09071825C4F082001A1D29 /* CompanyViewController.swift */,
 				DC09071D25C4F083001A1D29 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */,
 				DC09071925C4F082001A1D29 /* CompanyViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,

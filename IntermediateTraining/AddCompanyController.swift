@@ -10,6 +10,8 @@ import UIKit
 
 class AddCompanyController: UIViewController {
   
+  var nameStackView = TextInputStackView(for: "name")
+  
   var backgroundView: UIView = {
     let backgroundView = UIView()
     
@@ -17,35 +19,6 @@ class AddCompanyController: UIViewController {
     backgroundView.backgroundColor = .lightBlue
     
     return backgroundView
-  }()
-  
-  var nameLabel: UILabel = {
-    let label = UILabel()
-    
-    label.text = "Name"
-    label.setContentHuggingPriority(.init(rawValue: 251), for: .horizontal)
-    label.setContentHuggingPriority(.init(rawValue: 251), for: .vertical)
-    
-    return label
-  }()
-  
-  var nameTextField: UITextField = {
-    let textField = UITextField()
-    
-    textField.placeholder = "Enter Company Name"
-    return textField
-  }()
-  
-  lazy var nameStackView: UIStackView = {
-    let stackView = UIStackView()
-    
-    stackView.tAMIC = false
-    stackView.addArrangedSubview(nameLabel)
-    stackView.addArrangedSubview(nameTextField)
-    stackView.alignment = .firstBaseline
-    stackView.spacing = 8
-    
-    return stackView
   }()
   
   override func viewDidLoad() {
@@ -68,16 +41,12 @@ class AddCompanyController: UIViewController {
     backgroundView.addSubview(nameStackView)
     NSLayoutConstraint.activate([
       nameStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-      nameStackView.leadingAnchor.constraint(equalTo:backgroundView.leadingAnchor, constant: 16),
-      backgroundView.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor, constant: 16),
+      nameStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: backgroundView.leadingAnchor, multiplier: 2.0),
+      backgroundView.trailingAnchor.constraint(equalToSystemSpacingAfter: nameStackView.trailingAnchor, multiplier: 2.0),
       nameStackView.heightAnchor.constraint(equalToConstant: 50),
       nameStackView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor)
     ])
     
-    NSLayoutConstraint.activate([
-      nameLabel.centerYAnchor.constraint(equalTo: nameStackView.centerYAnchor),
-      nameLabel.widthAnchor.constraint(equalToConstant: 100)
-    ])
   }
   
   private func populateContentToNavigationBar() {
@@ -92,5 +61,6 @@ class AddCompanyController: UIViewController {
   
   @objc func save() {
     
+    presentingViewController?.dismiss(animated: true)
   }
 }
