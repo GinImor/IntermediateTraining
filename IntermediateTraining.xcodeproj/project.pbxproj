@@ -15,6 +15,7 @@
 		DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */; };
 		DC09072B25C58FB6001A1D29 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072A25C58FB6001A1D29 /* Company.swift */; };
 		DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072C25C5974E001A1D29 /* AddCompanyController.swift */; };
+		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+colorConstructor.swift"; sourceTree = "<group>"; };
 		DC09072A25C58FB6001A1D29 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		DC09072C25C5974E001A1D29 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
+		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
 				DC09072A25C58FB6001A1D29 /* Company.swift */,
 				DC09072C25C5974E001A1D29 /* AddCompanyController.swift */,
+				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
 				DC09071825C4F082001A1D29 /* CompanyViewController.swift */,
 				DC09071D25C4F083001A1D29 /* Assets.xcassets */,
 				DC09071F25C4F083001A1D29 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			files = (
 				DC09071925C4F082001A1D29 /* CompanyViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
+				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,
 				DC09072B25C58FB6001A1D29 /* Company.swift in Sources */,
 				DC09071725C4F082001A1D29 /* SceneDelegate.swift in Sources */,

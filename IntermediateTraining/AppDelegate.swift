@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     barStandardAppearance.configureWithDefaultBackground()
     barStandardAppearance.backgroundColor = .lightRed
     barStandardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-//     barStandardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    barStandardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     barStandardAppearance.buttonAppearance = buttonAppearance
 
     UINavigationBar.appearance().prefersLargeTitles = true
