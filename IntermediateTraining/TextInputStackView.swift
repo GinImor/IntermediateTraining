@@ -22,6 +22,11 @@ class TextInputStackView: UIStackView {
     return textField
   }()
   
+  var textInput: String {
+    guard let text = textField.text else { return "" }
+    return text
+  }
+  
   private override init(frame: CGRect) {
     super.init(frame: .zero)
   }
@@ -38,6 +43,7 @@ class TextInputStackView: UIStackView {
   private func setup(for labelName: String) {
     label.text = labelName.capitalized
     textField.placeholder = "Enter \(label.text!)"
+    textField.delegate = self
     
     tAMIC = false
     addArrangedSubview(label)
@@ -52,3 +58,12 @@ class TextInputStackView: UIStackView {
   
 }
 
+
+extension TextInputStackView: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  
+}

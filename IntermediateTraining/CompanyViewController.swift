@@ -14,7 +14,7 @@ class CompanyViewController: UITableViewController {
     static let cell = "CellID"
   }
   
-  let companies: [Company] = [
+  var companies: [Company] = [
     Company(name: "Apple", founded: Date()),
     Company(name: "Google", founded: Date()),
     Company(name: "Fackbook", founded: Date()),
@@ -46,7 +46,10 @@ class CompanyViewController: UITableViewController {
   }
   
   @objc func addCompany() {
-    let addCompanyNavigationController = UINavigationController(rootViewController: AddCompanyController())
+    let addCompanyController = AddCompanyController()
+    addCompanyController.delegate = self
+    
+    let addCompanyNavigationController = UINavigationController(rootViewController: addCompanyController)
     present(addCompanyNavigationController, animated: true)
   }
   
@@ -117,3 +120,12 @@ class CompanyViewController: UITableViewController {
   
 }
 
+extension CompanyViewController: AddCompanyDelegate {
+  
+  func didAdd(company: Company) {
+    let indexPath = IndexPath(row: companies.count, section: 0)
+    
+    companies.append(company)
+    tableView.insertRows(at: [indexPath], with: .automatic)
+  }
+}

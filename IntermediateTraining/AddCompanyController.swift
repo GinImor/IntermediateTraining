@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddCompanyDelegate: class {
+  func didAdd(company: Company)
+}
+
 class AddCompanyController: UIViewController {
   
   var nameStackView = TextInputStackView(for: "name")
@@ -20,6 +24,8 @@ class AddCompanyController: UIViewController {
     
     return backgroundView
   }()
+  
+  weak var delegate: AddCompanyDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,7 +66,10 @@ class AddCompanyController: UIViewController {
   }
   
   @objc func save() {
-    
-    presentingViewController?.dismiss(animated: true)
+    presentingViewController?.dismiss(animated: true) {
+      let newCompany = Company(name: self.nameStackView.textInput, founded: Date())
+      self.delegate?.didAdd(company: newCompany)
+    }
   }
+  
 }
