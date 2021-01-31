@@ -35,6 +35,11 @@ class AddCompanyController: UIViewController {
     populateContentToNavigationBar()
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    nameStackView.readyForInput()
+  }
+  
   private func setupMainUI() {
     view.backgroundColor = .darkBlue
     

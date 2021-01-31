@@ -56,6 +56,12 @@ class TextInputStackView: UIStackView {
     ])
   }
   
+  func readyForInput() {
+    if textField.window != nil {
+      textField.becomeFirstResponder()
+    }
+  }
+  
 }
 
 

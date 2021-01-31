@@ -23,8 +23,8 @@ class CompanyViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupTableView()
     configureNavigationBar()
+    setupTableView()
     loadData()
   }
 
@@ -86,6 +86,33 @@ class CompanyViewController: UITableViewController {
     return 50
   }
   
+  override func tableView(
+    _ tableView: UITableView,
+    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+  ) -> UISwipeActionsConfiguration? {
+    let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] (_, _, completion) in
+      let company = self.companies[indexPath.row]
+      self.companies.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+      
+      CoreDataStack.shared.mainContext.delete(company)
+      CoreDataStack.shared.saveContext()
+      
+      completion(true)
+    }
+    
+    let editAction = UIContextualAction(style: .normal, title: "Edit") { [unowned self] (_, _, completion) in
+      
+      
+      
+      
+      
+      completion(true)
+    }
+    
+    
+    return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+  }
   
   // MARK: - Table View Data Source
   
@@ -114,4 +141,5 @@ extension CompanyViewController: AddCompanyDelegate {
     companies.append(company)
     tableView.insertRows(at: [indexPath], with: .automatic)
   }
+  
 }
