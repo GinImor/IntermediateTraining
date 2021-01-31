@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CompanyViewController: UITableViewController {
 
@@ -14,23 +15,32 @@ class CompanyViewController: UITableViewController {
     static let cell = "CellID"
   }
   
-  var companies: [Company] = [
-    Company(name: "Apple", founded: Date()),
-    Company(name: "Google", founded: Date()),
-    Company(name: "Fackbook", founded: Date()),
-  ]
+  var companies: [Company] = []
   
   
   // MARK: - View Controller Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
     
     setupTableView()
     configureNavigationBar()
+    loadData()
   }
 
+  
+  // MARK: - Load Data
+  
+  private func loadData() {
+    let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
+    
+    do {
+      companies = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+      tableView.reloadData()
+    } catch let nserror as NSError {
+      fatalError("\(nserror), \(nserror.userInfo)")
+    }
+  }
   
   // MARK: - Configure Navigation Bar
   
@@ -51,30 +61,6 @@ class CompanyViewController: UITableViewController {
     
     let addCompanyNavigationController = UINavigationController(rootViewController: addCompanyController)
     present(addCompanyNavigationController, animated: true)
-  }
-  
-  private func configureBarAppearanceForNavigationController() {
-    let navigationBar = navigationController?.navigationBar
-    let standardAppearance = navigationBar?.standardAppearance
-    
-    navigationBar?.prefersLargeTitles = true
-    
-    standardAppearance?.backgroundColor = .lightRed
-    standardAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white]
-    standardAppearance?.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    
-    // doesn't need navigationBar?.compactAppearance = standardAppearance
-    navigationBar?.scrollEdgeAppearance = standardAppearance
-  }
-
-  private func configureBarAppearanceForChildController() {
-    // specific to this item
-    let navigationBar = navigationController?.navigationBar
-    let standardAppearance = navigationBar?.standardAppearance.copy()
-    // customize the appearance
-    navigationItem.standardAppearance = standardAppearance
-    navigationItem.compactAppearance = standardAppearance
-    navigationItem.scrollEdgeAppearance = standardAppearance
   }
   
   

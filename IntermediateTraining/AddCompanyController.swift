@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol AddCompanyDelegate: class {
   func didAdd(company: Company)
@@ -67,8 +68,14 @@ class AddCompanyController: UIViewController {
   
   @objc func save() {
     presentingViewController?.dismiss(animated: true) {
-      let newCompany = Company(name: self.nameStackView.textInput, founded: Date())
-      self.delegate?.didAdd(company: newCompany)
+      let company = NSEntityDescription.insertNewObject(
+        forEntityName: "Company",
+        into: CoreDataStack.shared.mainContext
+      )
+      company.setValue(self.nameStackView.textInput, forKey: "name")
+      CoreDataStack.shared.saveContext()
+      
+      self.delegate?.didAdd(company: company as! Company)
     }
   }
   
