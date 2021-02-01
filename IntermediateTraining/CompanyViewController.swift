@@ -59,7 +59,8 @@ class CompanyViewController: UITableViewController {
     let addCompanyController = AddCompanyController()
     addCompanyController.delegate = self
     
-    let addCompanyNavigationController = UINavigationController(rootViewController: addCompanyController)
+    let addCompanyNavigationController =
+      lightStatusBarNavigationController(rootViewController: addCompanyController)
     present(addCompanyNavigationController, animated: true)
   }
   
@@ -90,8 +91,9 @@ class CompanyViewController: UITableViewController {
     _ tableView: UITableView,
     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
   ) -> UISwipeActionsConfiguration? {
+    let company = self.companies[indexPath.row]
+    
     let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] (_, _, completion) in
-      let company = self.companies[indexPath.row]
       self.companies.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
       
@@ -102,14 +104,20 @@ class CompanyViewController: UITableViewController {
     }
     
     let editAction = UIContextualAction(style: .normal, title: "Edit") { [unowned self] (_, _, completion) in
+      let editCompanyController = AddCompanyController()
+      editCompanyController.company = company
+      editCompanyController.delegate = self
       
+      let editCompanyNavigationController =
+        lightStatusBarNavigationController(rootViewController: editCompanyController)
       
-      
-      
-      
-      completion(true)
+      self.present(editCompanyNavigationController, animated: true) {
+        completion(true)
+      }
     }
     
+    deleteAction.backgroundColor = .lightRed
+    editAction.backgroundColor = .darkBlue
     
     return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
   }
@@ -128,6 +136,7 @@ class CompanyViewController: UITableViewController {
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     cell.textLabel?.textColor = .white
     cell.backgroundColor = .tealColor
+    
     return cell
   }
   
@@ -140,6 +149,13 @@ extension CompanyViewController: AddCompanyDelegate {
     
     companies.append(company)
     tableView.insertRows(at: [indexPath], with: .automatic)
+  }
+  
+  func didEdit(company: Company) {
+    guard let row = companies.firstIndex(of: company) else { return }
+    
+    let indexPath = IndexPath(row: row, section: 0)
+    tableView.reloadRows(at: [indexPath], with: .middle)
   }
   
 }

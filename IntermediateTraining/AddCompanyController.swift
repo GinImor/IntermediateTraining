@@ -11,9 +11,16 @@ import CoreData
 
 protocol AddCompanyDelegate: class {
   func didAdd(company: Company)
+  func didEdit(company: Company)
 }
 
 class AddCompanyController: UIViewController {
+  
+  var company: Company? {
+    didSet {
+      nameStackView.textInput = company?.name
+    }
+  }
   
   var nameStackView = TextInputStackView(for: "name")
   
@@ -73,15 +80,34 @@ class AddCompanyController: UIViewController {
   
   @objc func save() {
     presentingViewController?.dismiss(animated: true) {
-      let company = NSEntityDescription.insertNewObject(
-        forEntityName: "Company",
-        into: CoreDataStack.shared.mainContext
-      )
-      company.setValue(self.nameStackView.textInput, forKey: "name")
-      CoreDataStack.shared.saveContext()
+      guard self.nameStackView.textInput != "" else { return }
       
-      self.delegate?.didAdd(company: company as! Company)
+      if self.company == nil { self.addCompany() }
+      else { self.updateCompany() }
     }
+  }
+  
+  private func addCompany() {
+//    can't use
+//    let company = Company(context: CoreDataStack.shared.mainContext)
+//    updateModel()
+    let company = NSEntityDescription.insertNewObject(
+      forEntityName: "Company",
+      into: CoreDataStack.shared.mainContext
+    )
+    company.setValue(nameStackView.textInput, forKey: "name")
+       CoreDataStack.shared.saveContext()
+    self.delegate?.didAdd(company: company as! Company)
+  }
+  
+  private func updateCompany() {
+    updateModel()
+    self.delegate?.didEdit(company: company!)
+  }
+
+  private func updateModel() {
+    company?.name = nameStackView.textInput
+    CoreDataStack.shared.saveContext()
   }
   
 }

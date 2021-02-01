@@ -22,9 +22,14 @@ class TextInputStackView: UIStackView {
     return textField
   }()
   
-  var textInput: String {
-    guard let text = textField.text else { return "" }
-    return text
+  var textInput: String! {
+    get {
+      guard let text = textField.text else { return "" }
+      return text
+    }
+    set {
+      textField.text = newValue
+    }
   }
   
   private override init(frame: CGRect) {
