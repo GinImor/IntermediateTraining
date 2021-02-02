@@ -146,6 +146,10 @@ class CompanyViewController: UITableViewController {
     cell.textLabel?.textColor = .white
     cell.backgroundColor = .tealColor
     
+    if let imageData = company.imageData {
+      cell.imageView?.image = UIImage(data: imageData)
+    }
+    
     return cell
   }
   

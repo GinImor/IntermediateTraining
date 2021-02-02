@@ -18,10 +18,13 @@ class AddCompanyController: UIViewController {
   
   var company: Company? {
     didSet {
+      if let imageData = company?.imageData {
+        image = UIImage(data: imageData)
+      }
       nameStackView.textInput = company?.name
-      
-      guard let founded = company?.founded else { return }
-      datePicker.date = founded
+      if let founded = company?.founded {
+        datePicker.date = founded
+      }
     }
   }
   
@@ -34,10 +37,19 @@ class AddCompanyController: UIViewController {
     return backgroundView
   }()
   
+  var image: UIImage? {
+    get { imageView.image }
+    set {
+      imageView.image = newValue
+      setupRoundedImageView()
+    }
+  }
+  
   lazy var imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
     
     imageView.tAMIC = false
+    imageView.contentMode = .scaleAspectFill
     imageView.isUserInteractionEnabled = true
     
     let tapGestureRecognizor = UITapGestureRecognizer(target: self, action: #selector(tap))
@@ -140,6 +152,9 @@ class AddCompanyController: UIViewController {
     
     company.setValue(nameStackView.textInput, forKey: "name")
     company.setValue(datePicker.date, forKey: "founded")
+    if let imageData = image?.jpegData(compressionQuality: 0.8) {
+      company.setValue(imageData, forKey: "imageData")
+    }
     CoreDataStack.shared.saveContext()
     
     self.delegate?.didAdd(company: company as! Company)
@@ -153,7 +168,15 @@ class AddCompanyController: UIViewController {
   private func updateModel() {
     company?.name = nameStackView.textInput
     company?.founded = datePicker.date
+    company?.imageData = image?.jpegData(compressionQuality: 0.8)
     CoreDataStack.shared.saveContext()
+  }
+  
+  private func setupRoundedImageView() {
+    imageView.layer.cornerRadius = imageView.frame.width / 2
+    imageView.layer.masksToBounds = true
+    imageView.layer.borderWidth = 2
+    imageView.layer.borderColor = UIColor.darkBlue.cgColor
   }
   
 }
@@ -167,9 +190,9 @@ extension AddCompanyController: UINavigationControllerDelegate, UIImagePickerCon
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
     if let editedImage = info[.editedImage] as? UIImage {
-      imageView.image = editedImage
+      image = editedImage
     } else if let originalImage = info[.originalImage] as? UIImage {
-      imageView.image = originalImage
+      image = originalImage
     }
     
     picker.presentingViewController?.dismiss(animated: true)
