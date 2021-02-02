@@ -16,7 +16,11 @@ class CompanyViewController: UITableViewController {
   }
   
   var companies: [Company] = []
-  
+  let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMM dd, YYYY"
+    return dateFormatter
+  }()
   
   // MARK: - View Controller Life Cycle
   
@@ -132,7 +136,12 @@ class CompanyViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: ID.cell, for: indexPath)
     let company = companies[indexPath.row]
     
-    cell.textLabel?.text = company.name
+    if let name = company.name, let founded = company.founded {
+      cell.textLabel?.text = "\(name) - Founded: \(dateFormatter.string(from: founded))"
+    } else {
+      cell.textLabel?.text = company.name
+    }
+    
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     cell.textLabel?.textColor = .white
     cell.backgroundColor = .tealColor

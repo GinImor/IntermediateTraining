@@ -19,10 +19,11 @@ class AddCompanyController: UIViewController {
   var company: Company? {
     didSet {
       nameStackView.textInput = company?.name
+      
+      guard let founded = company?.founded else { return }
+      datePicker.date = founded
     }
   }
-  
-  var nameStackView = TextInputStackView(for: "name")
   
   var backgroundView: UIView = {
     let backgroundView = UIView()
@@ -31,6 +32,29 @@ class AddCompanyController: UIViewController {
     backgroundView.backgroundColor = .lightBlue
     
     return backgroundView
+  }()
+  
+  lazy var imageView: UIImageView = {
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
+    
+    imageView.tAMIC = false
+    imageView.isUserInteractionEnabled = true
+    
+    let tapGestureRecognizor = UITapGestureRecognizer(target: self, action: #selector(tap))
+    imageView.addGestureRecognizer(tapGestureRecognizor)
+    
+    return imageView
+  }()
+  
+  var nameStackView = TextInputStackView(for: "name")
+  
+  var datePicker: UIDatePicker = {
+    let datePicker = UIDatePicker()
+    
+    datePicker.tAMIC = false
+    datePicker.datePickerMode = .date
+    
+    return datePicker
   }()
   
   weak var delegate: AddCompanyDelegate?
@@ -51,21 +75,30 @@ class AddCompanyController: UIViewController {
     view.backgroundColor = .darkBlue
     
     view.addSubview(backgroundView)
+    backgroundView.addSubview(imageView)
+    backgroundView.addSubview(nameStackView)
+    backgroundView.addSubview(datePicker)
+    
     NSLayoutConstraint.activate([
       backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-      view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor)
-    ])
-    
-    backgroundView.addSubview(nameStackView)
-    NSLayoutConstraint.activate([
-      nameStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+      view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+      
+      imageView.topAnchor.constraint(equalToSystemSpacingBelow: backgroundView.topAnchor, multiplier: 1.0),
+      imageView.heightAnchor.constraint(equalToConstant: 100),
+      imageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+      imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
+      
+      nameStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
       nameStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: backgroundView.leadingAnchor, multiplier: 2.0),
       backgroundView.trailingAnchor.constraint(equalToSystemSpacingAfter: nameStackView.trailingAnchor, multiplier: 2.0),
       nameStackView.heightAnchor.constraint(equalToConstant: 50),
-      nameStackView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor)
+      
+      datePicker.topAnchor.constraint(equalToSystemSpacingBelow: nameStackView.bottomAnchor, multiplier: 1.0),
+      backgroundView.bottomAnchor.constraint(equalTo: datePicker.bottomAnchor),
+      datePicker.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
     ])
-    
+
   }
   
   private func populateContentToNavigationBar() {
@@ -87,6 +120,15 @@ class AddCompanyController: UIViewController {
     }
   }
   
+  @objc func tap() {
+    let imagePicker = UIImagePickerController()
+    
+    imagePicker.delegate = self
+    imagePicker.allowsEditing = true
+    
+    present(imagePicker, animated: true, completion: nil)
+  }
+  
   private func addCompany() {
 //    can't use
 //    let company = Company(context: CoreDataStack.shared.mainContext)
@@ -95,8 +137,11 @@ class AddCompanyController: UIViewController {
       forEntityName: "Company",
       into: CoreDataStack.shared.mainContext
     )
+    
     company.setValue(nameStackView.textInput, forKey: "name")
-       CoreDataStack.shared.saveContext()
+    company.setValue(datePicker.date, forKey: "founded")
+    CoreDataStack.shared.saveContext()
+    
     self.delegate?.didAdd(company: company as! Company)
   }
   
@@ -107,7 +152,26 @@ class AddCompanyController: UIViewController {
 
   private func updateModel() {
     company?.name = nameStackView.textInput
+    company?.founded = datePicker.date
     CoreDataStack.shared.saveContext()
   }
   
+}
+
+extension AddCompanyController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.presentingViewController?.dismiss(animated: true)
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    if let editedImage = info[.editedImage] as? UIImage {
+      imageView.image = editedImage
+    } else if let originalImage = info[.originalImage] as? UIImage {
+      imageView.image = originalImage
+    }
+    
+    picker.presentingViewController?.dismiss(animated: true)
+  }
 }
