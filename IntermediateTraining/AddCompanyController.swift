@@ -148,13 +148,13 @@ class AddCompanyController: UIViewController {
     let imageData = image?.jpegData(compressionQuality: 0.8)
     let company = NSEntityDescription.insertNewObject(
       forEntityName: "Company",
-      into: CoreDataStack.shared.mainContext
+      into: CompanyCoreDataStack.shared.mainContext
     )
     
     company.setValue(imageData, forKey: "imageData")
     company.setValue(nameStackView.textInput, forKey: "name")
     company.setValue(datePicker.date, forKey: "founded")
-    CoreDataStack.shared.saveContext()
+    CompanyCoreDataStack.shared.saveContext()
     
     self.delegate?.didAdd(company: company as! Company)
   }
@@ -168,7 +168,7 @@ class AddCompanyController: UIViewController {
     company?.name = nameStackView.textInput
     company?.founded = datePicker.date
     company?.imageData = image?.jpegData(compressionQuality: 0.8)
-    CoreDataStack.shared.saveContext()
+    CompanyCoreDataStack.shared.saveContext()
   }
   
   private func setupRoundedImageView() {

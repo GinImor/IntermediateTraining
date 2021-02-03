@@ -10,10 +10,10 @@ import UIKit
 
 class CompanyCell: UITableViewCell {
   
-  var imageViewWidth: CGFloat { 40 }
-  var imageViewPadding: CGFloat { 8 }
-  var imageViewCenterX: CGFloat { imageViewPadding+imageViewWidth/2 }
-  var textLabelXOffset: CGFloat { 2*imageViewPadding+imageViewWidth }
+  private var imageViewWidth: CGFloat { 40 }
+  private var imageViewPadding: CGFloat { 8 }
+  private var imageViewCenterX: CGFloat { imageViewPadding+imageViewWidth/2 }
+  private var textLabelXOffset: CGFloat { imageViewPadding*2+imageViewWidth}
   
   var company: Company? {
     didSet {
@@ -58,5 +58,6 @@ class CompanyCell: UITableViewCell {
     
     separatorInset = UIEdgeInsets(top: 0, left: textLabelXOffset, bottom: 0, right: 0)
   }
+  
 }
  

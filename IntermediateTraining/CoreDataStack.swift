@@ -10,8 +10,6 @@ import CoreData
 
 class CoreDataStack {
   
-  static let shared = CoreDataStack(modalName: "Model")
-  
   let modalName: String
   
   var mainContext: NSManagedObjectContext {
@@ -28,7 +26,7 @@ class CoreDataStack {
     return container
   }()
   
-  private init(modalName: String) {
+  internal init(modalName: String) {
     self.modalName = modalName
   }
   

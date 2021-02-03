@@ -20,6 +20,9 @@
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
 		DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71325CA432200432910 /* CompanyCell.swift */; };
 		DCF7F71825CA4AE000432910 /* DateFormatter+customInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */; };
+		DCF7F71D25CA5FC500432910 /* CompanyController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71C25CA5FC500432910 /* CompanyController+UITableView.swift */; };
+		DCF7F71F25CA602300432910 /* CompanyController+AddCompanyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71E25CA602300432910 /* CompanyController+AddCompanyDelegate.swift */; };
+		DCF7F72225CA64CC00432910 /* CompanyCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
 		DCF7F71325CA432200432910 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+customInstance.swift"; sourceTree = "<group>"; };
+		DCF7F71C25CA5FC500432910 /* CompanyController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyController+UITableView.swift"; sourceTree = "<group>"; };
+		DCF7F71E25CA602300432910 /* CompanyController+AddCompanyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyController+AddCompanyDelegate.swift"; sourceTree = "<group>"; };
+		DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,22 +76,49 @@
 		DC09071325C4F082001A1D29 /* IntermediateTraining */ = {
 			isa = PBXGroup;
 			children = (
+				DCF7F72025CA64A600432910 /* CoreDataStack */,
+				DCF7F71A25CA5F7100432910 /* Utility */,
+				DCF7F71925CA5F3D00432910 /* Company */,
 				DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */,
-				DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */,
 				DC09071425C4F082001A1D29 /* AppDelegate.swift */,
 				DC09071625C4F082001A1D29 /* SceneDelegate.swift */,
-				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
 				DC09072C25C5974E001A1D29 /* AddCompanyController.swift */,
 				DC2342DB25C6979900C4E047 /* TextInputStackView.swift */,
-				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
-				DC09071825C4F082001A1D29 /* CompanyViewController.swift */,
-				DCF7F71325CA432200432910 /* CompanyCell.swift */,
 				DC09071D25C4F083001A1D29 /* Assets.xcassets */,
 				DC09071F25C4F083001A1D29 /* LaunchScreen.storyboard */,
 				DC09072225C4F083001A1D29 /* Info.plist */,
-				DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */,
 			);
 			path = IntermediateTraining;
+			sourceTree = "<group>";
+		};
+		DCF7F71925CA5F3D00432910 /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				DC09071825C4F082001A1D29 /* CompanyViewController.swift */,
+				DCF7F71325CA432200432910 /* CompanyCell.swift */,
+				DCF7F71C25CA5FC500432910 /* CompanyController+UITableView.swift */,
+				DCF7F71E25CA602300432910 /* CompanyController+AddCompanyDelegate.swift */,
+			);
+			name = Company;
+			sourceTree = "<group>";
+		};
+		DCF7F71A25CA5F7100432910 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */,
+				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
+				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		DCF7F72025CA64A600432910 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */,
+				DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */,
+			);
+			name = CoreDataStack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,10 +196,13 @@
 				DC09071925C4F082001A1D29 /* CompanyViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
 				DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */,
+				DCF7F72225CA64CC00432910 /* CompanyCoreDataStack.swift in Sources */,
+				DCF7F71F25CA602300432910 /* CompanyController+AddCompanyDelegate.swift in Sources */,
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
 				DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,
 				DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */,
+				DCF7F71D25CA5FC500432910 /* CompanyController+UITableView.swift in Sources */,
 				DC09071725C4F082001A1D29 /* SceneDelegate.swift in Sources */,
 				DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */,
 			);
