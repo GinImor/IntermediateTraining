@@ -145,16 +145,15 @@ class AddCompanyController: UIViewController {
 //    can't use
 //    let company = Company(context: CoreDataStack.shared.mainContext)
 //    updateModel()
+    let imageData = image?.jpegData(compressionQuality: 0.8)
     let company = NSEntityDescription.insertNewObject(
       forEntityName: "Company",
       into: CoreDataStack.shared.mainContext
     )
     
+    company.setValue(imageData, forKey: "imageData")
     company.setValue(nameStackView.textInput, forKey: "name")
     company.setValue(datePicker.date, forKey: "founded")
-    if let imageData = image?.jpegData(compressionQuality: 0.8) {
-      company.setValue(imageData, forKey: "imageData")
-    }
     CoreDataStack.shared.saveContext()
     
     self.delegate?.didAdd(company: company as! Company)

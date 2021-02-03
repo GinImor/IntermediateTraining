@@ -54,12 +54,28 @@ class CompanyViewController: UITableViewController {
   
   private func populateContentToNavigationBar() {
     navigationItem.title = "Companies"
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(reset))
     // withRenderingMode(.alwaysOriginal) prevent default coloring, eg blue for bar button
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus").withRenderingMode(.alwaysOriginal),
                                                         style: .plain, target: self, action: #selector(addCompany))
+
   }
   
-  @objc func addCompany() {
+  @objc private func reset() {
+    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
+    
+    do {
+      try CoreDataStack.shared.mainContext.execute(batchDeleteRequest)
+      
+      let indexPathsToRemove = (0..<companies.count).map { IndexPath(row: $0, section: 0) }
+      companies.removeAll()
+      tableView.deleteRows(at: indexPathsToRemove, with: .bottom)
+    } catch {
+      print("fail to reset", error)
+    }
+  }
+  
+  @objc private func addCompany() {
     let addCompanyController = AddCompanyController()
     addCompanyController.delegate = self
     
@@ -91,13 +107,29 @@ class CompanyViewController: UITableViewController {
     return 50
   }
   
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let label = UILabel()
+    
+    label.text = "no company"
+    label.textColor = .white
+    label.textAlignment = .center
+    label.font = UIFont.boldSystemFont(ofSize: 16)
+    
+    return label
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return companies.count == 0 ? 150 : 0
+  }
+  
   override func tableView(
     _ tableView: UITableView,
     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
   ) -> UISwipeActionsConfiguration? {
     let company = self.companies[indexPath.row]
     
-    let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] (_, _, completion) in
+    let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
+      [unowned self] (_, _, completion) in
       self.companies.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
       
@@ -107,7 +139,8 @@ class CompanyViewController: UITableViewController {
       completion(true)
     }
     
-    let editAction = UIContextualAction(style: .normal, title: "Edit") { [unowned self] (_, _, completion) in
+    let editAction = UIContextualAction(style: .normal, title: "Edit") {
+      [unowned self] (_, _, completion) in
       let editCompanyController = AddCompanyController()
       editCompanyController.company = company
       editCompanyController.delegate = self
