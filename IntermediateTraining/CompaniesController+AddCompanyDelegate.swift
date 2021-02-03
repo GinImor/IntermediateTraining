@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CompanyViewController: AddCompanyDelegate {
+extension CompaniesViewController: AddCompanyDelegate {
   
   func didAdd(company: Company) {
     let indexPath = IndexPath(row: companies.count, section: 0)

@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     barStandardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
     barStandardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     barStandardAppearance.buttonAppearance = buttonAppearance
-
+    
+    UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().prefersLargeTitles = true
     UINavigationBar.appearance().standardAppearance = barStandardAppearance
     // used when navigation associated with a scroll view,

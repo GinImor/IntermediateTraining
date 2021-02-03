@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
   private func createNavigationController() -> lightStatusBarNavigationController {
-    let navigationController = lightStatusBarNavigationController(rootViewController: CompanyViewController())
+    let navigationController = lightStatusBarNavigationController(rootViewController: CompaniesViewController())
     return navigationController
   }
   

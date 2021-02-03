@@ -73,9 +73,7 @@ class AddCompanyController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    setupMainUI()
-    populateContentToNavigationBar()
+    setupAddItemEnvironment()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -83,47 +81,7 @@ class AddCompanyController: UIViewController {
     nameStackView.readyForInput()
   }
   
-  private func setupMainUI() {
-    view.backgroundColor = .darkBlue
-    
-    view.addSubview(backgroundView)
-    backgroundView.addSubview(imageView)
-    backgroundView.addSubview(nameStackView)
-    backgroundView.addSubview(datePicker)
-    
-    NSLayoutConstraint.activate([
-      backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-      view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-      
-      imageView.topAnchor.constraint(equalToSystemSpacingBelow: backgroundView.topAnchor, multiplier: 1.0),
-      imageView.heightAnchor.constraint(equalToConstant: 100),
-      imageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-      imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
-      
-      nameStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-      nameStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: backgroundView.leadingAnchor, multiplier: 2.0),
-      backgroundView.trailingAnchor.constraint(equalToSystemSpacingAfter: nameStackView.trailingAnchor, multiplier: 2.0),
-      nameStackView.heightAnchor.constraint(equalToConstant: 50),
-      
-      datePicker.topAnchor.constraint(equalToSystemSpacingBelow: nameStackView.bottomAnchor, multiplier: 1.0),
-      backgroundView.bottomAnchor.constraint(equalTo: datePicker.bottomAnchor),
-      datePicker.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-    ])
-
-  }
-  
-  private func populateContentToNavigationBar() {
-    navigationItem.title = "Add Company"
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
-  }
-  
-  @objc func cancel() {
-    presentingViewController?.dismiss(animated: true)
-  }
-  
-  @objc func save() {
+  @objc override func save() {
     presentingViewController?.dismiss(animated: true) {
       guard self.nameStackView.textInput != "" else { return }
       
@@ -196,4 +154,37 @@ extension AddCompanyController: UINavigationControllerDelegate, UIImagePickerCon
     
     picker.presentingViewController?.dismiss(animated: true)
   }
+}
+
+extension AddCompanyController: AddItemProtocol {
+  
+  var navitationTitle: String { "Add Company" }
+  
+  func setupViewsLayout() {
+    view.addSubview(backgroundView)
+    backgroundView.addSubview(imageView)
+    backgroundView.addSubview(nameStackView)
+    backgroundView.addSubview(datePicker)
+    
+    NSLayoutConstraint.activate([
+      backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+      view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+      
+      imageView.topAnchor.constraint(equalToSystemSpacingBelow: backgroundView.topAnchor, multiplier: 1.0),
+      imageView.heightAnchor.constraint(equalToConstant: 100),
+      imageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+      imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
+      
+      nameStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+      nameStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: backgroundView.leadingAnchor, multiplier: 2.0),
+      backgroundView.trailingAnchor.constraint(equalToSystemSpacingAfter: nameStackView.trailingAnchor, multiplier: 2.0),
+      nameStackView.heightAnchor.constraint(equalToConstant: 50),
+      
+      datePicker.topAnchor.constraint(equalToSystemSpacingBelow: nameStackView.bottomAnchor, multiplier: 1.0),
+      backgroundView.bottomAnchor.constraint(equalTo: datePicker.bottomAnchor),
+      datePicker.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+    ])
+  }
+  
 }

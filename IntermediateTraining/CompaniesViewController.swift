@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CompanyViewController: UITableViewController {
+class CompaniesViewController: UITableViewController {
 
   enum ID {
     static let cell = "CellID"
@@ -50,14 +50,11 @@ class CompanyViewController: UITableViewController {
   
   private func populateContentToNavigationBar() {
     navigationItem.title = "Companies"
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(reset))
-    // withRenderingMode(.alwaysOriginal) prevent default coloring, eg blue for bar button
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus").withRenderingMode(.alwaysOriginal),
-                                                        style: .plain, target: self, action: #selector(addCompany))
-
+    setupResetBarButton()
+    setupAddBarButton()
   }
   
-  @objc private func reset() {
+  @objc override func reset() {
     CompanyCoreDataStack.shared.removeAllCompanies { (result) in
       switch result {
       case .success:
@@ -70,7 +67,7 @@ class CompanyViewController: UITableViewController {
     }
   }
   
-  @objc private func addCompany() {
+  @objc override func add() {
     let addCompanyController = AddCompanyController()
     addCompanyController.delegate = self
     
