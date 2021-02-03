@@ -16,11 +16,6 @@ class CompanyViewController: UITableViewController {
   }
   
   var companies: [Company] = []
-  let dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MMM dd, YYYY"
-    return dateFormatter
-  }()
   
   // MARK: - View Controller Life Cycle
   
@@ -92,7 +87,8 @@ class CompanyViewController: UITableViewController {
     tableView.separatorColor = .white
     // void the table footer view so that no line appear at the bottom
     tableView.tableFooterView = UIView()
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: ID.cell)
+//    tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+    tableView.register(CompanyCell.self, forCellReuseIdentifier: ID.cell)
   }
   
   // MARK: - Table View Delegate
@@ -166,23 +162,8 @@ class CompanyViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: ID.cell, for: indexPath)
-    let company = companies[indexPath.row]
-    
-    if let name = company.name, let founded = company.founded {
-      cell.textLabel?.text = "\(name) - Founded: \(dateFormatter.string(from: founded))"
-    } else {
-      cell.textLabel?.text = company.name
-    }
-    
-    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-    cell.textLabel?.textColor = .white
-    cell.backgroundColor = .tealColor
-    
-    if let imageData = company.imageData {
-      cell.imageView?.image = UIImage(data: imageData)
-    }
-    
+    let cell = tableView.dequeueReusableCell(withIdentifier: ID.cell, for: indexPath) as! CompanyCell
+    cell.company = companies[indexPath.row]
     return cell
   }
   

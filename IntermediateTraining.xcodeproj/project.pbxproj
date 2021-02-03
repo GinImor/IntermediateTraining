@@ -18,6 +18,8 @@
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
 		DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */; };
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
+		DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71325CA432200432910 /* CompanyCell.swift */; };
+		DCF7F71825CA4AE000432910 /* DateFormatter+customInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
+		DCF7F71325CA432200432910 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+customInstance.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +79,11 @@
 				DC2342DB25C6979900C4E047 /* TextInputStackView.swift */,
 				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
 				DC09071825C4F082001A1D29 /* CompanyViewController.swift */,
+				DCF7F71325CA432200432910 /* CompanyCell.swift */,
 				DC09071D25C4F083001A1D29 /* Assets.xcassets */,
 				DC09071F25C4F083001A1D29 /* LaunchScreen.storyboard */,
 				DC09072225C4F083001A1D29 /* Info.plist */,
+				DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */,
 			);
 			path = IntermediateTraining;
 			sourceTree = "<group>";
@@ -153,10 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */,
+				DCF7F71825CA4AE000432910 /* DateFormatter+customInstance.swift in Sources */,
 				DC09071925C4F082001A1D29 /* CompanyViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
 				DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */,
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
+				DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,
 				DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */,
 				DC09071725C4F082001A1D29 /* SceneDelegate.swift in Sources */,
