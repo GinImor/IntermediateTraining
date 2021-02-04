@@ -15,6 +15,7 @@
 		DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */; };
 		DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072C25C5974E001A1D29 /* AddCompanyController.swift */; };
 		DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2342DB25C6979900C4E047 /* TextInputStackView.swift */; };
+		DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */; };
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
 		DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */; };
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
@@ -27,6 +28,7 @@
 		DCF7F72825CAA21600432910 /* UIViewController+barButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */; };
 		DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72925CAA7EB00432910 /* AddEmployeeController.swift */; };
 		DCF7F72C25CAAD1700432910 /* AddItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */; };
+		DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,7 @@
 		DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+colorConstructor.swift"; sourceTree = "<group>"; };
 		DC09072C25C5974E001A1D29 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
 		DC2342DB25C6979900C4E047 /* TextInputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputStackView.swift; sourceTree = "<group>"; };
+		DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyEmployeeCoreDataStack.swift; sourceTree = "<group>"; };
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+barButtonItem.swift"; sourceTree = "<group>"; };
 		DCF7F72925CAA7EB00432910 /* AddEmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeController.swift; sourceTree = "<group>"; };
 		DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemProtocol.swift; sourceTree = "<group>"; };
+		DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightBlueBackgroundColorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		DCF7F71A25CA5F7100432910 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */,
 				DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */,
 				DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */,
 				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
@@ -129,6 +134,7 @@
 			children = (
 				DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */,
 				DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */,
+				DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */,
 			);
 			name = CoreDataStack;
 			sourceTree = "<group>";
@@ -218,6 +224,8 @@
 				DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */,
 				DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */,
 				DCF7F71D25CA5FC500432910 /* CompaniesController+UITableView.swift in Sources */,
+				DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */,
+				DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */,
 				DC09071725C4F082001A1D29 /* SceneDelegate.swift in Sources */,
 				DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */,
 				DCF7F72825CAA21600432910 /* UIViewController+barButtonItem.swift in Sources */,

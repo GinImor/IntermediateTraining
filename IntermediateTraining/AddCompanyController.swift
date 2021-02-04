@@ -28,15 +28,6 @@ class AddCompanyController: UIViewController {
     }
   }
   
-  var backgroundView: UIView = {
-    let backgroundView = UIView()
-    
-    backgroundView.tAMIC = false
-    backgroundView.backgroundColor = .lightBlue
-    
-    return backgroundView
-  }()
-  
   var image: UIImage? {
     get { imageView.image }
     set {
@@ -81,7 +72,7 @@ class AddCompanyController: UIViewController {
     nameStackView.readyForInput()
   }
   
-  @objc override func save() {
+  override func save() {
     presentingViewController?.dismiss(animated: true) {
       guard self.nameStackView.textInput != "" else { return }
       
@@ -92,7 +83,7 @@ class AddCompanyController: UIViewController {
   
   @objc func tap() {
     let imagePicker = UIImagePickerController()
-    
+    // remember ask user permision
     imagePicker.delegate = self
     imagePicker.allowsEditing = true
     
@@ -100,37 +91,26 @@ class AddCompanyController: UIViewController {
   }
   
   private func addCompany() {
-//    can't use
-//    let company = Company(context: CoreDataStack.shared.mainContext)
-//    updateModel()
-    let imageData = image?.jpegData(compressionQuality: 0.8)
-    let company = NSEntityDescription.insertNewObject(
-      forEntityName: "Company",
-      into: CompanyCoreDataStack.shared.mainContext
-    )
-    
-    company.setValue(imageData, forKey: "imageData")
-    company.setValue(nameStackView.textInput, forKey: "name")
-    company.setValue(datePicker.date, forKey: "founded")
-    CompanyCoreDataStack.shared.saveContext()
-    
-    self.delegate?.didAdd(company: company as! Company)
+    CompanyEmployeeCoreDataStack.shared.addCompany(
+      imageData: image?.jpegData(compressionQuality: 0.8),
+      name: nameStackView.textInput,
+      founded: datePicker.date) { (company) in
+        self.delegate?.didAdd(company: company)
+    }
   }
   
   private func updateCompany() {
-    updateModel()
-    self.delegate?.didEdit(company: company!)
-  }
-
-  private func updateModel() {
-    company?.name = nameStackView.textInput
-    company?.founded = datePicker.date
-    company?.imageData = image?.jpegData(compressionQuality: 0.8)
-    CompanyCoreDataStack.shared.saveContext()
+    CompanyEmployeeCoreDataStack.shared.updateCompany(
+      company: company!,
+      imageData: image?.jpegData(compressionQuality: 0.8),
+      name: nameStackView.textInput,
+      founded: datePicker.date) {
+        self.delegate?.didEdit(company: company!)
+    }
   }
   
   private func setupRoundedImageView() {
-    imageView.layer.cornerRadius = imageView.frame.width / 2
+    imageView.layer.cornerRadius = imageView.frame.width/2
     imageView.layer.masksToBounds = true
     imageView.layer.borderWidth = 2
     imageView.layer.borderColor = UIColor.darkBlue.cgColor
@@ -161,16 +141,13 @@ extension AddCompanyController: AddItemProtocol {
   var navitationTitle: String { "Add Company" }
   
   func setupViewsLayout() {
-    view.addSubview(backgroundView)
+    let backgroundView = lightBlueBackgroundView()
+    
     backgroundView.addSubview(imageView)
     backgroundView.addSubview(nameStackView)
     backgroundView.addSubview(datePicker)
     
     NSLayoutConstraint.activate([
-      backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-      view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-      
       imageView.topAnchor.constraint(equalToSystemSpacingBelow: backgroundView.topAnchor, multiplier: 1.0),
       imageView.heightAnchor.constraint(equalToConstant: 100),
       imageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
@@ -188,3 +165,5 @@ extension AddCompanyController: AddItemProtocol {
   }
   
 }
+
+extension AddCompanyController: LightBlueBackgroundColorProtocol {}

@@ -48,8 +48,8 @@ extension CompaniesViewController {
        self.companies.remove(at: indexPath.row)
        tableView.deleteRows(at: [indexPath], with: .automatic)
        
-       CompanyCoreDataStack.shared.mainContext.delete(company)
-       CompanyCoreDataStack.shared.saveContext()
+       CompanyEmployeeCoreDataStack.shared.mainContext.delete(company)
+       CompanyEmployeeCoreDataStack.shared.saveContext()
        
        completion(true)
      }

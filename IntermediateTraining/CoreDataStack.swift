@@ -10,14 +10,14 @@ import CoreData
 
 class CoreDataStack {
   
-  let modalName: String
+  let modelName: String
   
   var mainContext: NSManagedObjectContext {
     return persistentContainer.viewContext
   }
   
   lazy var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: modalName)
+    let container = NSPersistentContainer(name: modelName)
     container.loadPersistentStores { (storeDescription, error) in
       if let error = error as NSError? {
         print("\(error), \(error.userInfo)")
@@ -26,8 +26,8 @@ class CoreDataStack {
     return container
   }()
   
-  internal init(modalName: String) {
-    self.modalName = modalName
+  internal init(modelName: String) {
+    self.modelName = modelName
   }
   
   func saveContext() {

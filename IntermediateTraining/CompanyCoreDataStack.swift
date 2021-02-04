@@ -10,9 +10,24 @@ import CoreData
 
 class CompanyCoreDataStack: CoreDataStack {
   
-  static let shared = CompanyCoreDataStack(modalName: "Model")
+  final func addCompany(
+    imageData: Data?, name: String, founded: Date,
+    completion: (Company) -> Void)
+  {
+    let company = NSEntityDescription.insertNewObject(
+      forEntityName: "Company",
+      into: mainContext
+    )
+    
+    company.setValue(imageData, forKey: "imageData")
+    company.setValue(name, forKey: "name")
+    company.setValue(founded, forKey: "founded")
+    
+    saveContext()
+    completion(company as! Company)
+  }
   
-  func loadComapnies(completion: (Result<[Company], Error>) -> Void) {
+  final func loadComapnies(completion: (Result<[Company], Error>) -> Void) {
     let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
     
     do {
@@ -22,7 +37,20 @@ class CompanyCoreDataStack: CoreDataStack {
     }
   }
   
-  func removeAllCompanies(completion: (Result<Any?, Error>) -> Void) {
+  final func updateCompany(
+    company: Company, imageData: Data?,
+    name: String, founded: Date,
+    completion: () -> Void)
+  {
+    company.name = name
+    company.founded = founded
+    company.imageData = imageData
+    
+    saveContext()
+    completion()
+  }
+  
+  final func removeAllCompanies(completion: (Result<Any?, Error>) -> Void) {
     let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
     
     do {

@@ -31,7 +31,7 @@ class CompaniesViewController: UITableViewController {
   // MARK: - Load Data
   
   private func loadData() {
-    CompanyCoreDataStack.shared.loadComapnies { (result) in
+    CompanyEmployeeCoreDataStack.shared.loadComapnies { (result) in
       switch result {
       case .success(let companies):
         self.companies = companies
@@ -55,7 +55,7 @@ class CompaniesViewController: UITableViewController {
   }
   
   @objc override func reset() {
-    CompanyCoreDataStack.shared.removeAllCompanies { (result) in
+    CompanyEmployeeCoreDataStack.shared.removeAllCompanies { (result) in
       switch result {
       case .success:
         let indexPathsToRemove = (0..<companies.count).map { IndexPath(row: $0, section: 0) }
