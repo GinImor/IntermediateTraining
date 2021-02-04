@@ -16,4 +16,10 @@ extension DateFormatter {
     return dateFormatter
   }()
   
+  static let m2sD2sY4: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy"
+    return dateFormatter
+  }()
+  
 }

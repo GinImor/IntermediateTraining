@@ -40,14 +40,14 @@ class TextInputStackView: UIStackView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  init(for labelName: String) {
+  init(for labelName: String, placeholder: String? = nil) {
     super.init(frame: .zero)
-    setup(for: labelName)
+    setup(for: labelName, placeholder: placeholder)
   }
   
-  private func setup(for labelName: String) {
+  private func setup(for labelName: String, placeholder: String?) {
     label.text = labelName.capitalized
-    textField.placeholder = "Enter \(label.text!)"
+    textField.placeholder = placeholder ?? "Enter \(label.text!)"
     textField.delegate = self
     
     tAMIC = false
