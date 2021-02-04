@@ -14,6 +14,7 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
   
   final func addEmployee(
     name: String,
+    title: String,
     birthday: Date,
     company: Company,
     completion: (Employee) -> Void)
@@ -27,10 +28,11 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
                          into: mainContext
                        ) as! EmployeeInfo
     
-    employeeInfo.taxID = "1634"
     employeeInfo.birthday = birthday
     
     employee.setValue(name, forKey: "name")
+    employee.title = title
+    
     employee.info = employeeInfo
     employee.company = company
     

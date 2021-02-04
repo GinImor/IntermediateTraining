@@ -21,6 +21,17 @@ class AddEmployeeController: UIViewController {
   let nameStackView = TextInputStackView(for: "name")
   let birthdayStackView = TextInputStackView(for: "birthday", placeholder: "MM/dd/yyyy")
   
+  var titleSegmentedControl: UISegmentedControl = {
+    let segmentedControl = UISegmentedControl(items: EmployeeTitle.allNames)
+    
+    segmentedControl.disableTAMIC()
+    segmentedControl.selectedSegmentIndex = 0
+    segmentedControl.selectedSegmentTintColor = .darkBlue
+    segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    
+    return segmentedControl
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupAddItemEnvironment()
@@ -75,6 +86,7 @@ class AddEmployeeController: UIViewController {
   private func addEmployee() {
     CompanyEmployeeCoreDataStack.shared.addEmployee(
     name: nameStackView.textInput,
+    title: titleSegmentedControl.titleForSegment(at: titleSegmentedControl.selectedSegmentIndex)!,
     birthday: DateFormatter.m2sD2sY4.date(from: self.birthdayStackView.textInput)!,
     company: company) { (employee) in
       NotificationCenter.default.post(name: .didAddEmployee, object: nil, userInfo: ["employee": employee])
@@ -96,6 +108,7 @@ extension AddEmployeeController: AddItemProtocol {
     
     backgroundView.addSubview(nameStackView)
     backgroundView.addSubview(birthdayStackView)
+    backgroundView.addSubview(titleSegmentedControl)
     
     NSLayoutConstraint.activate([
       nameStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
@@ -108,7 +121,11 @@ extension AddEmployeeController: AddItemProtocol {
       birthdayStackView.rightAnchor.constraint(equalTo: nameStackView.rightAnchor),
       birthdayStackView.heightAnchor.constraint(equalToConstant: 50),
       
-      backgroundView.bottomAnchor.constraint(equalTo: birthdayStackView.bottomAnchor),
+      titleSegmentedControl.topAnchor.constraint(equalTo: birthdayStackView.bottomAnchor),
+      titleSegmentedControl.leftAnchor.constraint(equalTo: birthdayStackView.leftAnchor),
+      titleSegmentedControl.rightAnchor.constraint(equalTo: birthdayStackView.rightAnchor),
+      
+      backgroundView.bottomAnchor.constraint(equalToSystemSpacingBelow: titleSegmentedControl.bottomAnchor, multiplier: 1.0),
     ])
     
   }

@@ -13,4 +13,9 @@ extension UIView {
     get { translatesAutoresizingMaskIntoConstraints }
     set { translatesAutoresizingMaskIntoConstraints = newValue }
   }
+  
+  func disableTAMIC() {
+    tAMIC = false
+  }
+  
 }

@@ -16,6 +16,8 @@
 		DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072C25C5974E001A1D29 /* AddCompanyController.swift */; };
 		DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2342DB25C6979900C4E047 /* TextInputStackView.swift */; };
 		DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */; };
+		DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */; };
+		DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */; };
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
 		DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */; };
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
@@ -43,6 +45,8 @@
 		DC09072C25C5974E001A1D29 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
 		DC2342DB25C6979900C4E047 /* TextInputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputStackView.swift; sourceTree = "<group>"; };
 		DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyEmployeeCoreDataStack.swift; sourceTree = "<group>"; };
+		DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = SOURCE_ROOT; };
+		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 		DC09071325C4F082001A1D29 /* IntermediateTraining */ = {
 			isa = PBXGroup;
 			children = (
+				DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */,
+				DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */,
 				DCF7F72025CA64A600432910 /* CoreDataStack */,
 				DCF7F71A25CA5F7100432910 /* Utility */,
 				DCF7F71925CA5F3D00432910 /* Company */,
@@ -218,6 +224,8 @@
 				DCF7F72C25CAAD1700432910 /* AddItemProtocol.swift in Sources */,
 				DCF7F71F25CA602300432910 /* CompaniesController+AddCompanyDelegate.swift in Sources */,
 				DCF7F72425CA991E00432910 /* EmployeesController.swift in Sources */,
+				DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */,
+				DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */,
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
 				DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,

@@ -11,15 +11,14 @@ import UIKit
 class EmployeesController: UITableViewController {
   
   var company: Company!
-  
-  lazy var employees: [Employee] = company.employees?.allObjects as? [Employee] ?? []
-  
+  var employees: [[Employee]] = []
   var observerAddOrUpdate: NSObjectProtocol?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     populateContentToNavigationBar()
+    loadData() // load data need to precede set up table view
     setupTableView()
   }
   
@@ -31,6 +30,15 @@ class EmployeesController: UITableViewController {
   override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
     unregisterNOtification()
+  }
+  
+  private func loadData() {
+    guard let unsortedEmployees = company.employees?.allObjects as? [Employee] else { return }
+    
+    employees = []
+    EmployeeTitle.allNames.forEach { title in
+      employees.append(unsortedEmployees.filter {$0.title == title})
+    }
   }
   
   private func populateContentToNavigationBar() {
@@ -57,10 +65,12 @@ class EmployeesController: UITableViewController {
   
   private func registerNotification() {
     observerAddOrUpdate = NotificationCenter.default.addObserver(forName: .didAddEmployee, object: nil, queue: nil) { (notification) in
-      if let employee = notification.userInfo?["employee"] as? Employee {
-        self.employees.append(employee)
-        self.tableView.reloadData()
-      }
+      guard let employee = notification.userInfo?["employee"] as? Employee,
+        let section = EmployeeTitle.allNames.firstIndex(of: employee.title!) else { return }
+      
+      let indexPath = IndexPath(row: self.employees[section].count, section: section)
+      self.employees[section].append(employee)
+      self.tableView.insertRows(at: [indexPath], with: .middle)
     }
   }
   
@@ -74,16 +84,27 @@ extension EmployeesController {
   
   // MARK: - Table View Delegate
   
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let label = IndentedLabel()
+    
+    label.backgroundColor = .lightBlue
+    label.text = EmployeeTitle.allNames[section]
+    return label
+  }
   
   // MARK: - Table View Data Source
   
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return EmployeeTitle.allNames.count
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return employees.count
+    return employees[section].count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: ID.employeeCell, for: indexPath)
-    let employee = employees[indexPath.row]
+    let employee = employees[indexPath.section][indexPath.row]
     
     if let birthday = employee.info?.birthday {
        let birthdayString = DateFormatter.m3D2Y4.string(from: birthday)
