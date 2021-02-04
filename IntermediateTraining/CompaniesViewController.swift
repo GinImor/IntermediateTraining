@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
+enum ID {
+  static let companyCell = "companyCell"
+  static let employeeCell = "employeeCell"
+}
+
 class CompaniesViewController: UITableViewController {
 
-  enum ID {
-    static let cell = "CellID"
-  }
   
   var companies: [Company] = []
   
@@ -85,7 +87,7 @@ class CompaniesViewController: UITableViewController {
     // void the table footer view so that no line appear at the bottom
     tableView.tableFooterView = UIView()
 //    tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-    tableView.register(CompanyCell.self, forCellReuseIdentifier: ID.cell)
+    tableView.register(CompanyCell.self, forCellReuseIdentifier: ID.companyCell)
   }
   
 }
