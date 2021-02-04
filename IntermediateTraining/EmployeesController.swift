@@ -96,7 +96,8 @@ extension EmployeesController {
     let cell = tableView.dequeueReusableCell(withIdentifier: ID.employeeCell, for: indexPath)
     let employee = employees[indexPath.row]
     
-    cell.textLabel?.text = employee.name
+    cell.textLabel?.text = "\(employee.name ?? "") \(employee.info?.taxID ?? "")"
+    cell.backgroundColor = .tealColor
     return cell
   }
 }

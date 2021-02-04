@@ -19,12 +19,19 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
     let employee = NSEntityDescription.insertNewObject(
       forEntityName: "Employee",
       into: mainContext
-    )
+    ) as! Employee
+    let employeeInfo = NSEntityDescription.insertNewObject(
+                         forEntityName: "EmployeeInfo",
+                         into: mainContext
+                       ) as! EmployeeInfo
+    
+    employeeInfo.taxID = "1634"
     
     employee.setValue(name, forKey: "name")
+    employee.info = employeeInfo
     
     saveContext()
-    completion(employee as! Employee)
+    completion(employee)
   }
   
   final func loadEmployees(completion: (Result<[Employee], Error>) -> Void) {

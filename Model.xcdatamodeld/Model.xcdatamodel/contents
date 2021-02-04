@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Address" representedClassName="Address" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <attribute name="street" optional="YES" attributeType="String"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="address" inverseEntity="Employee"/>
+    </entity>
     <entity name="Company" representedClassName="Company" syncable="YES" codeGenerationType="class">
         <attribute name="founded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
@@ -7,9 +13,18 @@
     </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="employee" inverseEntity="Address"/>
+        <relationship name="info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmployeeInfo" inverseName="employee" inverseEntity="EmployeeInfo"/>
+    </entity>
+    <entity name="EmployeeInfo" representedClassName="EmployeeInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="taxID" optional="YES" attributeType="String"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="info" inverseEntity="Employee"/>
     </entity>
     <elements>
-        <element name="Company" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="Employee" positionX="-63" positionY="9" width="128" height="58"/>
+        <element name="Company" positionX="-323.41796875" positionY="-99.5390625" width="128" height="88"/>
+        <element name="Employee" positionX="-146.3515625" positionY="-30.56640625" width="128" height="88"/>
+        <element name="EmployeeInfo" positionX="79.51171875" positionY="47.1171875" width="128" height="88"/>
+        <element name="Address" positionX="75.62890625" positionY="-143.125" width="128" height="103"/>
     </elements>
 </model>
