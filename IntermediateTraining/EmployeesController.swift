@@ -10,9 +10,9 @@ import UIKit
 
 class EmployeesController: UITableViewController {
   
-  var company: Company?
+  var company: Company!
   
-  var employees: [Employee] = []
+  lazy var employees: [Employee] = company.employees?.allObjects as? [Employee] ?? []
   
   var observerAddOrUpdate: NSObjectProtocol?
   
@@ -21,7 +21,6 @@ class EmployeesController: UITableViewController {
     
     populateContentToNavigationBar()
     setupTableView()
-    loadData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -34,20 +33,8 @@ class EmployeesController: UITableViewController {
     unregisterNOtification()
   }
   
-  private func loadData() {
-    CompanyEmployeeCoreDataStack.shared.loadEmployees { (result) in
-      switch result {
-      case .success(let employees):
-        self.employees = employees
-        self.tableView.reloadData()
-      case .failure(let error):
-        print("can't load employees", error)
-      }
-    }
-  }
-  
   private func populateContentToNavigationBar() {
-    navigationItem.title = company?.name
+    navigationItem.title = company.name
     setupAddBarButton()
   }
   
@@ -61,6 +48,8 @@ class EmployeesController: UITableViewController {
   
   @objc override func add() {
     let addEmployeeController = AddEmployeeController()
+    addEmployeeController.company = company
+    
     let addEmployeeNavigationController =
       UINavigationController(rootViewController: addEmployeeController)
     present(addEmployeeNavigationController, animated: true)

@@ -10,10 +10,12 @@ import UIKit
 import CoreData
 
 extension NSNotification.Name {
-  static let didAddEmployee = NSNotification.Name(rawValue: "didAddEmployee")}
+  static let didAddEmployee = NSNotification.Name(rawValue: "didAddEmployee")
+}
 
 class AddEmployeeController: UIViewController {
   
+  var company: Company!
   var employee: Employee?
   
   let nameStackView = TextInputStackView(for: "name")
@@ -33,7 +35,7 @@ class AddEmployeeController: UIViewController {
   }
   
   private func addEmployee() {
-    CompanyEmployeeCoreDataStack.shared.addEmployee(name: nameStackView.textInput) { (employee) in
+    CompanyEmployeeCoreDataStack.shared.addEmployee(name: nameStackView.textInput, company: company) { (employee) in
       NotificationCenter.default.post(name: .didAddEmployee, object: nil, userInfo: ["employee": employee])
     }
   }

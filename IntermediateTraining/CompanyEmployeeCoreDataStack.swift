@@ -14,6 +14,7 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
   
   final func addEmployee(
     name: String,
+    company: Company,
     completion: (Employee) -> Void)
   {
     let employee = NSEntityDescription.insertNewObject(
@@ -29,6 +30,7 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
     
     employee.setValue(name, forKey: "name")
     employee.info = employeeInfo
+    employee.company = company
     
     saveContext()
     completion(employee)

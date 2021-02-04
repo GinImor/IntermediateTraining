@@ -10,10 +10,12 @@
         <attribute name="founded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="company" inverseEntity="Employee"/>
     </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="employee" inverseEntity="Address"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="employees" inverseEntity="Company"/>
         <relationship name="info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmployeeInfo" inverseName="employee" inverseEntity="EmployeeInfo"/>
     </entity>
     <entity name="EmployeeInfo" representedClassName="EmployeeInfo" syncable="YES" codeGenerationType="class">
@@ -22,8 +24,8 @@
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="info" inverseEntity="Employee"/>
     </entity>
     <elements>
-        <element name="Company" positionX="-323.41796875" positionY="-99.5390625" width="128" height="88"/>
-        <element name="Employee" positionX="-146.3515625" positionY="-30.56640625" width="128" height="88"/>
+        <element name="Company" positionX="-423.59375" positionY="-128.3359375" width="128" height="103"/>
+        <element name="Employee" positionX="-146.3515625" positionY="-30.56640625" width="128" height="103"/>
         <element name="EmployeeInfo" positionX="79.51171875" positionY="47.1171875" width="128" height="88"/>
         <element name="Address" positionX="75.62890625" positionY="-143.125" width="128" height="103"/>
     </elements>

@@ -16,7 +16,6 @@ enum ID {
 
 class CompaniesViewController: UITableViewController {
 
-  
   var companies: [Company] = []
   
   // MARK: - View Controller Life Cycle
