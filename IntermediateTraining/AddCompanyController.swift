@@ -9,11 +9,6 @@
 import UIKit
 import CoreData
 
-protocol AddCompanyDelegate: class {
-  func didAdd(company: Company)
-  func didEdit(company: Company)
-}
-
 class AddCompanyController: UIViewController {
   
   var company: Company? {
@@ -60,8 +55,6 @@ class AddCompanyController: UIViewController {
     return datePicker
   }()
   
-  weak var delegate: AddCompanyDelegate?
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupAddItemEnvironment()
@@ -94,9 +87,7 @@ class AddCompanyController: UIViewController {
     CompanyEmployeeCoreDataStack.shared.addCompany(
       imageData: image?.jpegData(compressionQuality: 0.8),
       name: nameStackView.textInput,
-      founded: datePicker.date) { (company) in
-        self.delegate?.didAdd(company: company)
-    }
+      founded: datePicker.date) { (company) in }
   }
   
   private func updateCompany() {
@@ -104,9 +95,7 @@ class AddCompanyController: UIViewController {
       company: company!,
       imageData: image?.jpegData(compressionQuality: 0.8),
       name: nameStackView.textInput,
-      founded: datePicker.date) {
-        self.delegate?.didEdit(company: company!)
-    }
+      founded: datePicker.date) {}
   }
   
   private func setupRoundedImageView() {

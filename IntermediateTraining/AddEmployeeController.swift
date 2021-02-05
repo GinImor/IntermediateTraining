@@ -9,10 +9,6 @@
 import UIKit
 import CoreData
 
-extension NSNotification.Name {
-  static let didAddEmployee = NSNotification.Name(rawValue: "didAddEmployee")
-}
-
 class AddEmployeeController: UIViewController {
   
   var company: Company!
@@ -86,11 +82,9 @@ class AddEmployeeController: UIViewController {
   private func addEmployee() {
     CompanyEmployeeCoreDataStack.shared.addEmployee(
     name: nameStackView.textInput,
-    title: titleSegmentedControl.titleForSegment(at: titleSegmentedControl.selectedSegmentIndex)!,
+    title: Int32(titleSegmentedControl.selectedSegmentIndex),
     birthday: DateFormatter.m2sD2sY4.date(from: self.birthdayStackView.textInput)!,
-    company: company) { (employee) in
-      NotificationCenter.default.post(name: .didAddEmployee, object: nil, userInfo: ["employee": employee])
-    }
+    company: company) { (employee) in }
   }
   
   private func updateEmployee() {

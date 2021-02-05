@@ -34,20 +34,25 @@ extension CompaniesViewController {
    }
    
    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-     return companies.count == 0 ? 150 : 0
+    return fetchedResultsController.fetchedObjects?.count == 0 ? 150 : 0
+   }
+  
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     let employeesController = EmployeesController()
+    
+     employeesController.company = fetchedResultsController.fetchedObjects?[indexPath.row]
+     navigationController?.pushViewController(employeesController, animated: true)
    }
    
    override func tableView(
      _ tableView: UITableView,
      trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
    ) -> UISwipeActionsConfiguration? {
-     let company = self.companies[indexPath.row]
+    let company = self.fetchedResultsController.object(at: indexPath)
      
      let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
-       [unowned self] (_, _, completion) in
-       self.companies.remove(at: indexPath.row)
-       tableView.deleteRows(at: [indexPath], with: .automatic)
-       
+       (_, _, completion) in
+      
        CompanyEmployeeCoreDataStack.shared.mainContext.delete(company)
        CompanyEmployeeCoreDataStack.shared.saveContext()
        
@@ -58,7 +63,7 @@ extension CompaniesViewController {
        [unowned self] (_, _, completion) in
        let editCompanyController = AddCompanyController()
        editCompanyController.company = company
-       editCompanyController.delegate = self
+//       editCompanyController.delegate = self
        
        let editCompanyNavigationController =
          lightStatusBarNavigationController(rootViewController: editCompanyController)
@@ -73,25 +78,5 @@ extension CompaniesViewController {
      
      return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
    }
-   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let employeesController = EmployeesController()
-    
-    employeesController.company = companies[indexPath.row]
-    navigationController?.pushViewController(employeesController, animated: true)
-  }
-  
-  
-   // MARK: - Table View Data Source
-   
-   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return companies.count
-   }
-   
-   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: ID.companyCell, for: indexPath) as! CompanyCell
-     cell.company = companies[indexPath.row]
-     return cell
-   }
-  
+ 
 }

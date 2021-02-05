@@ -18,13 +18,13 @@
 		DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */; };
 		DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */; };
 		DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */; };
+		DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */; };
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
 		DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */; };
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
 		DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71325CA432200432910 /* CompanyCell.swift */; };
 		DCF7F71825CA4AE000432910 /* DateFormatter+customInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */; };
 		DCF7F71D25CA5FC500432910 /* CompaniesController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71C25CA5FC500432910 /* CompaniesController+UITableView.swift */; };
-		DCF7F71F25CA602300432910 /* CompaniesController+AddCompanyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F71E25CA602300432910 /* CompaniesController+AddCompanyDelegate.swift */; };
 		DCF7F72225CA64CC00432910 /* CompanyCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */; };
 		DCF7F72425CA991E00432910 /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72325CA991E00432910 /* EmployeesController.swift */; };
 		DCF7F72825CAA21600432910 /* UIViewController+barButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */; };
@@ -47,13 +47,13 @@
 		DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyEmployeeCoreDataStack.swift; sourceTree = "<group>"; };
 		DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = SOURCE_ROOT; };
 		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
+		DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
 		DCF7F71325CA432200432910 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+customInstance.swift"; sourceTree = "<group>"; };
 		DCF7F71C25CA5FC500432910 /* CompaniesController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompaniesController+UITableView.swift"; sourceTree = "<group>"; };
-		DCF7F71E25CA602300432910 /* CompaniesController+AddCompanyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompaniesController+AddCompanyDelegate.swift"; sourceTree = "<group>"; };
 		DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCoreDataStack.swift; sourceTree = "<group>"; };
 		DCF7F72325CA991E00432910 /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
 		DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+barButtonItem.swift"; sourceTree = "<group>"; };
@@ -93,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */,
+				DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */,
 				DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */,
 				DCF7F72025CA64A600432910 /* CoreDataStack */,
 				DCF7F71A25CA5F7100432910 /* Utility */,
@@ -117,7 +118,6 @@
 				DCF7F71C25CA5FC500432910 /* CompaniesController+UITableView.swift */,
 				DCF7F72325CA991E00432910 /* EmployeesController.swift */,
 				DCF7F72925CAA7EB00432910 /* AddEmployeeController.swift */,
-				DCF7F71E25CA602300432910 /* CompaniesController+AddCompanyDelegate.swift */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -222,7 +222,6 @@
 				DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */,
 				DCF7F72225CA64CC00432910 /* CompanyCoreDataStack.swift in Sources */,
 				DCF7F72C25CAAD1700432910 /* AddItemProtocol.swift in Sources */,
-				DCF7F71F25CA602300432910 /* CompaniesController+AddCompanyDelegate.swift in Sources */,
 				DCF7F72425CA991E00432910 /* EmployeesController.swift in Sources */,
 				DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */,
 				DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */,
@@ -233,6 +232,7 @@
 				DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */,
 				DCF7F71D25CA5FC500432910 /* CompaniesController+UITableView.swift in Sources */,
 				DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */,
+				DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */,
 				DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */,
 				DC09071725C4F082001A1D29 /* SceneDelegate.swift in Sources */,
 				DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */,

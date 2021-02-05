@@ -14,9 +14,21 @@ enum ID {
   static let employeeCell = "employeeCell"
 }
 
-class CompaniesViewController: UITableViewController {
+class CompaniesViewController: FetchedResultsTableViewController<Company> {
 
-  var companies: [Company] = []
+  // MARK: - Override Superclass Properties and Functions
+  
+  override var cellID: String { ID.companyCell }
+  override var sortKeys: [String] { [#keyPath(Company.name)] }
+  override var managedObjectContext: NSManagedObjectContext {
+    CompanyEmployeeCoreDataStack.shared.mainContext
+  }
+  override func configure(cell: UITableViewCell, for indexPath: IndexPath) {
+    if let cell = cell as? CompanyCell {
+      cell.company = fetchedResultsController?.object(at: indexPath)
+    }
+  }
+  
   
   // MARK: - View Controller Life Cycle
   
@@ -28,21 +40,6 @@ class CompaniesViewController: UITableViewController {
     loadData()
   }
 
-  
-  // MARK: - Load Data
-  
-  private func loadData() {
-    CompanyEmployeeCoreDataStack.shared.loadComapnies { (result) in
-      switch result {
-      case .success(let companies):
-        self.companies = companies
-        self.tableView.reloadData()
-      case .failure(let error):
-        print("can't load companies", error)
-      }
-    }
-  }
-  
   // MARK: - Configure Navigation Bar
   
   private func configureNavigationBar() {
@@ -56,21 +53,12 @@ class CompaniesViewController: UITableViewController {
   }
   
   @objc override func reset() {
-    CompanyEmployeeCoreDataStack.shared.removeAllCompanies { (result) in
-      switch result {
-      case .success:
-        let indexPathsToRemove = (0..<companies.count).map { IndexPath(row: $0, section: 0) }
-        companies.removeAll()
-        tableView.deleteRows(at: indexPathsToRemove, with: .top)
-      case .failure(let error):
-        print("can't reset companies", error)
-      }
-    }
+    CompanyEmployeeCoreDataStack.shared.removeAllCompanies {result in}
   }
   
   @objc override func add() {
     let addCompanyController = AddCompanyController()
-    addCompanyController.delegate = self
+//    addCompanyController.delegate = self
     
     let addCompanyNavigationController =
       lightStatusBarNavigationController(rootViewController: addCompanyController)
@@ -83,6 +71,7 @@ class CompaniesViewController: UITableViewController {
   private func setupTableView() {
     tableView.backgroundColor = .darkBlue
     tableView.separatorColor = .white
+    tableView.rowHeight = 50
     // void the table footer view so that no line appear at the bottom
     tableView.tableFooterView = UIView()
 //    tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
