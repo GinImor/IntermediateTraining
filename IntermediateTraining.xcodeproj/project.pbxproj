@@ -16,6 +16,7 @@
 		DC09072D25C5974E001A1D29 /* AddCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09072C25C5974E001A1D29 /* AddCompanyController.swift */; };
 		DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2342DB25C6979900C4E047 /* TextInputStackView.swift */; };
 		DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */; };
+		DC27DCD025CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */; };
 		DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */; };
 		DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */; };
 		DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */; };
@@ -45,6 +46,7 @@
 		DC09072C25C5974E001A1D29 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
 		DC2342DB25C6979900C4E047 /* TextInputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputStackView.swift; sourceTree = "<group>"; };
 		DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyEmployeeCoreDataStack.swift; sourceTree = "<group>"; };
+		DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableRowsDiffableDataSource.swift; sourceTree = SOURCE_ROOT; };
 		DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = SOURCE_ROOT; };
 		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
 		DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		DC09071325C4F082001A1D29 /* IntermediateTraining */ = {
 			isa = PBXGroup;
 			children = (
+				DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */,
 				DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */,
 				DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */,
 				DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */,
@@ -217,6 +220,7 @@
 			files = (
 				DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */,
 				DCF7F71825CA4AE000432910 /* DateFormatter+customInstance.swift in Sources */,
+				DC27DCD025CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift in Sources */,
 				DC09071925C4F082001A1D29 /* CompaniesViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
 				DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */,

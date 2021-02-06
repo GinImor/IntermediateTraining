@@ -46,10 +46,10 @@ class FetchedResultsTableViewController<Section: Hashable, Object: NSManagedObje
   
   // MARK: - Diffable Data Source
   
-  var dataSource: UITableViewDiffableDataSource<String, NSManagedObjectID>?
+  var dataSource: EditableRowsDiffableDataSource<String, NSManagedObjectID>?
   
-  func setupDataSource() -> UITableViewDiffableDataSource<String, NSManagedObjectID> {
-    return UITableViewDiffableDataSource(tableView: tableView) { [unowned self]
+  func setupDataSource() -> EditableRowsDiffableDataSource<String, NSManagedObjectID> {
+    return EditableRowsDiffableDataSource(tableView: tableView) { [unowned self]
       (tableView, indexPath, _) -> UITableViewCell? in
       let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath)
       
