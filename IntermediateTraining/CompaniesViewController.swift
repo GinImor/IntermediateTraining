@@ -14,12 +14,17 @@ enum ID {
   static let employeeCell = "employeeCell"
 }
 
-class CompaniesViewController: FetchedResultsTableViewController<Company> {
+enum CompanySection {
+  case Main
+}
+
+class CompaniesViewController: FetchedResultsTableViewController<String, Company> {
 
   // MARK: - Override Superclass Properties and Functions
   
   override var cellID: String { ID.companyCell }
   override var sortKeys: [String] { [#keyPath(Company.name)] }
+//  override var sectionNameKeyPath: String? { sortKeys[0] }
   override var managedObjectContext: NSManagedObjectContext {
     CompanyEmployeeCoreDataStack.shared.mainContext
   }
@@ -37,8 +42,8 @@ class CompaniesViewController: FetchedResultsTableViewController<Company> {
     
     configureNavigationBar()
     setupTableView()
-    loadData()
   }
+  
 
   // MARK: - Configure Navigation Bar
   

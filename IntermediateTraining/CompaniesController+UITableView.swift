@@ -63,8 +63,7 @@ extension CompaniesViewController {
        [unowned self] (_, _, completion) in
        let editCompanyController = AddCompanyController()
        editCompanyController.company = company
-//       editCompanyController.delegate = self
-       
+      
        let editCompanyNavigationController =
          lightStatusBarNavigationController(rootViewController: editCompanyController)
        

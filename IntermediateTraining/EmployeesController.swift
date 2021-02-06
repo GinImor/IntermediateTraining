@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EmployeesController: FetchedResultsTableViewController<Employee> {
+class EmployeesController: FetchedResultsTableViewController<String, Employee> {
   
   // MARK: - Override Superclass Properties and Functions
   
@@ -40,7 +40,6 @@ class EmployeesController: FetchedResultsTableViewController<Employee> {
     
     populateContentToNavigationBar()
     setupTableView()
-    loadData()
   }
   
   private func populateContentToNavigationBar() {
