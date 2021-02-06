@@ -85,9 +85,9 @@ class AddCompanyController: UIViewController {
   
   private func addCompany() {
     CompanyEmployeeCoreDataStack.shared.addCompany(
-      imageData: image?.jpegData(compressionQuality: 0.8),
       name: nameStackView.textInput,
-      founded: datePicker.date) { (company) in }
+      founded: datePicker.date,
+      imageData: image?.jpegData(compressionQuality: 0.8)) { (company) in }
   }
   
   private func updateCompany() {

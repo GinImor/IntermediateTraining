@@ -11,20 +11,24 @@ import CoreData
 class CompanyCoreDataStack: CoreDataStack {
   
   final func addCompany(
-    imageData: Data?, name: String, founded: Date,
-    completion: (Company) -> Void)
+    name: String, founded: Date?,
+    imageData: Data? = nil,
+    saveImmediately: Bool = true,
+    in context: NSManagedObjectContext? = nil,
+    completion: ((Company) -> Void)? = nil)
   {
+    let addContext = context ?? mainContext
     let company = NSEntityDescription.insertNewObject(
       forEntityName: "Company",
-      into: mainContext
+      into: addContext
     )
     
     company.setValue(imageData, forKey: "imageData")
     company.setValue(name, forKey: "name")
     company.setValue(founded, forKey: "founded")
     
-    saveContext()
-    completion(company as! Company)
+    if saveImmediately { saveContext(context: addContext) }
+    completion?(company as! Company)
   }
   
   final func updateCompany(

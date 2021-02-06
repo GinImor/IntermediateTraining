@@ -15,18 +15,14 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
   final func addEmployee(
     name: String,
     title: Int32,
-    birthday: Date,
+    birthday: Date?,
     company: Company,
-    completion: (Employee) -> Void)
+    saveImmediately: Bool = true,
+    into context: NSManagedObjectContext? = nil,
+    completion: ((Employee) -> Void)? = nil)
   {
-    let employee = NSEntityDescription.insertNewObject(
-      forEntityName: "Employee",
-      into: mainContext
-    ) as! Employee
-    let employeeInfo = NSEntityDescription.insertNewObject(
-                         forEntityName: "EmployeeInfo",
-                         into: mainContext
-                       ) as! EmployeeInfo
+    let employee = Employee(context: context ?? mainContext)
+    let employeeInfo = EmployeeInfo(context: context ?? mainContext)
     
     employeeInfo.birthday = birthday
     
@@ -36,8 +32,35 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
     employee.info = employeeInfo
     employee.company = company
     
-    saveContext()
-    completion(employee)
+    if saveImmediately { saveContext() }
+    completion?(employee)
+  }
+  
+  final func addCompanies(jsonCompanies: [JSONCompany]) {
+    let privateContext = newPrivateContext()
+    
+    jsonCompanies.forEach { (jsonCompany) in
+      self.addCompany(
+        name: jsonCompany.name,
+        founded: DateFormatter.m2sD2sY4.date(from: jsonCompany.founded),
+        saveImmediately: false,
+        in: privateContext) { (company) in
+          
+          jsonCompany.employees?.forEach { (jsonEmployee) in
+            self.addEmployee(
+              name: jsonEmployee.name,
+              title: Int32(EmployeeTitle.allNames.firstIndex(of: jsonEmployee.type)!),
+              birthday: DateFormatter.m2sD2sY4.date(from: jsonEmployee.birthday),
+              company: company,
+              saveImmediately: false,
+              into: privateContext
+            )
+          }
+          
+      }
+    }
+    
+    saveContext(context: privateContext)
   }
   
 }

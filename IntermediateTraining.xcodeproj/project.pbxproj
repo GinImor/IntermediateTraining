@@ -20,6 +20,8 @@
 		DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */; };
 		DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */; };
 		DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */; };
+		DC7D8EC725CE6FCD0006C7D9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D8EC625CE6FCD0006C7D9 /* Service.swift */; };
+		DC7D8EC925CE75220006C7D9 /* JSONCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */; };
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
 		DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */; };
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
@@ -50,6 +52,8 @@
 		DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = SOURCE_ROOT; };
 		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
 		DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
+		DC7D8EC625CE6FCD0006C7D9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCompany.swift; sourceTree = SOURCE_ROOT; };
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
@@ -94,7 +98,9 @@
 		DC09071325C4F082001A1D29 /* IntermediateTraining */ = {
 			isa = PBXGroup;
 			children = (
+				DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */,
 				DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */,
+				DC7D8EC625CE6FCD0006C7D9 /* Service.swift */,
 				DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */,
 				DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */,
 				DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */,
@@ -232,9 +238,11 @@
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
 				DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,
+				DC7D8EC925CE75220006C7D9 /* JSONCompany.swift in Sources */,
 				DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */,
 				DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */,
 				DCF7F71D25CA5FC500432910 /* CompaniesController+UITableView.swift in Sources */,
+				DC7D8EC725CE6FCD0006C7D9 /* Service.swift in Sources */,
 				DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */,
 				DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */,
 				DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */,

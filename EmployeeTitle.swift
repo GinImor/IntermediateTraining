@@ -10,7 +10,7 @@ import Foundation
 
 enum EmployeeTitle: String, CaseIterable {
   case Executive
-  case SeniorManager = "Senior Manager"
+  case SeniorManagement = "Senior Management"
   case Staff
   case Intern
   

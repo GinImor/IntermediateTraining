@@ -42,9 +42,21 @@ class CompaniesViewController: FetchedResultsTableViewController<String, Company
     
     configureNavigationBar()
     setupTableView()
+    setupRefreshControl()
   }
   
 
+  private func setupRefreshControl() {
+    refreshControl = UIRefreshControl()
+    
+    refreshControl?.tintColor = .white
+    refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+  }
+  
+  @objc func refresh() {
+    Service.downloadCompanies { self.refreshControl?.endRefreshing() }
+  }
+  
   // MARK: - Configure Navigation Bar
   
   private func configureNavigationBar() {

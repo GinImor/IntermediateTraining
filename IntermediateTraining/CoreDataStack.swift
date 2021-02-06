@@ -30,13 +30,42 @@ class CoreDataStack {
     self.modelName = modelName
   }
   
+  func newPrivateContext() -> NSManagedObjectContext {
+    let privateContext =
+      NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+    privateContext.parent = mainContext
+    return privateContext
+  }
+  
   func saveContext() {
-    if mainContext.hasChanges {
+    saveContext(context: mainContext)
+  }
+  
+  func saveContext(context: NSManagedObjectContext) {
+    if context != mainContext {
+      savePrivateContext(context: context)
+    }
+    
+    context.perform {
       do {
-        try mainContext.save()
+        try context.save()
       } catch let nserror as NSError {
         fatalError("\(nserror), \(nserror.userInfo)")
       }
+    }
+  }
+  
+  func savePrivateContext(context: NSManagedObjectContext) {
+    context.perform {
+      if context.hasChanges {
+        do {
+          try context.save()
+        } catch let error as NSError {
+          print("can't save context", error)
+        }
+      }
+      
+      self.saveContext(context: self.mainContext)
     }
   }
   
