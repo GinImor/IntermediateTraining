@@ -46,7 +46,7 @@ class FetchedResultsTableViewController<Section: Hashable, Object: NSManagedObje
   
   // MARK: - Diffable Data Source
   
-  var dataSource: EditableRowsDiffableDataSource<String, NSManagedObjectID>?
+  var dataSource: EditableRowsDiffableDataSource<String, NSManagedObjectID>!
   
   func setupDataSource() -> EditableRowsDiffableDataSource<String, NSManagedObjectID> {
     return EditableRowsDiffableDataSource(tableView: tableView) { [unowned self]
@@ -65,7 +65,23 @@ class FetchedResultsTableViewController<Section: Hashable, Object: NSManagedObje
    
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    
     fetchData()
+  }
+  
+  
+  var editedIndexPath: IndexPath?
+  
+  func reloadItem() {
+    if let editedIndexPath = self.editedIndexPath {
+      
+      let editedObjectID = fetchedResultsController.object(at: editedIndexPath).objectID
+      var newSnapshot = dataSource.snapshot()
+      newSnapshot.reloadItems([editedObjectID])
+      dataSource?.apply(newSnapshot, animatingDifferences: true)
+      
+      self.editedIndexPath = nil
+    }
   }
   
   func fetchData() {
@@ -82,7 +98,8 @@ class FetchedResultsTableViewController<Section: Hashable, Object: NSManagedObje
   func controller(
     _ controller: NSFetchedResultsController<NSFetchRequestResult>,
     didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-    dataSource?.apply(snapshot as  NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, animatingDifferences: true)
+    let newSnapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+    dataSource.apply(newSnapshot, animatingDifferences: true) { self.reloadItem() }
   }
 
 }

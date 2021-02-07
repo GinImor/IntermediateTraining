@@ -59,23 +59,24 @@ extension CompaniesViewController {
        completion(true)
      }
      
-     let editAction = UIContextualAction(style: .normal, title: "Edit") {
-       [unowned self] (_, _, completion) in
-       let editCompanyController = AddCompanyController()
-       editCompanyController.company = company
+    let editAction = UIContextualAction(style: .normal, title: "Edit") {
+      [unowned self] (_, _, completion) in
+      self.editedIndexPath = indexPath
+      let editCompanyController = AddCompanyController()
+      editCompanyController.company = company
       
-       let editCompanyNavigationController =
-         lightStatusBarNavigationController(rootViewController: editCompanyController)
-       
-       self.present(editCompanyNavigationController, animated: true) {
-         completion(true)
-       }
-     }
-     
-     deleteAction.backgroundColor = .lightRed
-     editAction.backgroundColor = .darkBlue
-     
-     return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-   }
+      let editCompanyNavigationController =
+        lightStatusBarNavigationController(rootViewController: editCompanyController)
+      
+      self.present(editCompanyNavigationController, animated: true) {
+        completion(true)
+      }
+    }
+    
+    deleteAction.backgroundColor = .lightRed
+    editAction.backgroundColor = .darkBlue
+    
+    return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+  }
  
 }
