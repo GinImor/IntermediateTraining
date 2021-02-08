@@ -66,7 +66,6 @@ class TextInputStackView: UIStackView {
       textField.becomeFirstResponder()
     }
   }
-  
 }
 
 
@@ -76,5 +75,4 @@ extension TextInputStackView: UITextFieldDelegate {
     textField.resignFirstResponder()
     return true
   }
-  
 }

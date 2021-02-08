@@ -35,5 +35,7 @@ extension UIViewController {
   @objc func add() {}
   @objc func reset() {}
   @objc func save() {}
-  @objc func cancel() { presentingViewController?.dismiss(animated: true) }
+  @objc func cancel() {
+    presentingViewController?.dismiss(animated: true)
+  }
 }

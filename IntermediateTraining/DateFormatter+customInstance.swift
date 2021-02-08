@@ -21,5 +21,4 @@ extension DateFormatter {
     dateFormatter.dateFormat = "MM/dd/yyyy"
     return dateFormatter
   }()
-  
 }

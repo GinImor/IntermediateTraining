@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EmployeesController: FetchedResultsTableViewController<String, Employee> {
+class EmployeesController: CompanyEmployeeController<Employee> {
   
   // MARK: - Override Superclass Properties and Functions
   
@@ -17,9 +17,7 @@ class EmployeesController: FetchedResultsTableViewController<String, Employee> {
   override var sortKeys: [String] { [#keyPath(Employee.title), #keyPath(Employee.name)] }
   override var sectionNameKeyPath: String? { sortKeys[0] }
   override var predicate: NSPredicate? { NSPredicate(format: "company = %@", company) }
-  override var managedObjectContext: NSManagedObjectContext {
-    CompanyEmployeeCoreDataStack.shared.mainContext
-  }
+  
   override func configure(cell: UITableViewCell, for indexPath: IndexPath) {
     let employee = fetchedResultsController.object(at: indexPath)
     
@@ -33,6 +31,11 @@ class EmployeesController: FetchedResultsTableViewController<String, Employee> {
     cell.backgroundColor = .tealColor
   }
   
+  // MARK: - Override CompanyEmployeeController Properties and Functions
+  
+  override var navigationTitle: String? { company.name }
+  override var cellClass: AnyClass? { UITableViewCell.self }
+  
   var company: Company!
   
   override func viewDidLoad() {
@@ -40,21 +43,6 @@ class EmployeesController: FetchedResultsTableViewController<String, Employee> {
     
     populateContentToNavigationBar()
     setupTableView()
-  }
-  
-  private func populateContentToNavigationBar() {
-    navigationItem.title = company.name
-    setupAddBarButton()
-  }
-  
-  private func setupTableView() {
-    tableView.backgroundColor = .darkBlue
-    tableView.separatorColor = .white
-    tableView.rowHeight = 50
-    tableView.sectionHeaderHeight = 50
-    // void the table footer view so that no line appear at the bottom
-    tableView.tableFooterView = UIView()
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: ID.employeeCell)
   }
   
   @objc override func add() {
@@ -86,5 +74,4 @@ extension EmployeesController {
     
     return label
   }
-
 }

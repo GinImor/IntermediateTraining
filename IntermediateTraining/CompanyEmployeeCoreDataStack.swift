@@ -56,10 +56,8 @@ class CompanyEmployeeCoreDataStack: CompanyCoreDataStack {
               into: privateContext
             )
           }
-          
       }
     }
-    
     saveContext(context: privateContext)
   }
   

@@ -9,25 +9,13 @@
 import UIKit
 import CoreData
 
-enum ID {
-  static let companyCell = "companyCell"
-  static let employeeCell = "employeeCell"
-}
-
-enum CompanySection {
-  case Main
-}
-
-class CompaniesViewController: FetchedResultsTableViewController<String, Company> {
+class CompaniesViewController: CompanyEmployeeController<Company> {
 
   // MARK: - Override Superclass Properties and Functions
   
   override var cellID: String { ID.companyCell }
   override var sortKeys: [String] { [#keyPath(Company.name)] }
-//  override var sectionNameKeyPath: String? { sortKeys[0] }
-  override var managedObjectContext: NSManagedObjectContext {
-    CompanyEmployeeCoreDataStack.shared.mainContext
-  }
+  
   override func configure(cell: UITableViewCell, for indexPath: IndexPath) {
     if let cell = cell as? CompanyCell {
       cell.company = fetchedResultsController?.object(at: indexPath)
@@ -35,16 +23,18 @@ class CompaniesViewController: FetchedResultsTableViewController<String, Company
   }
   
   
+  // MARK: - Override CompanyEmployeeController Properties and Functions
+  
+  override var navigationTitle: String? { "Companies" }
+  override var cellClass: AnyClass? { CompanyCell.self }
+  
+  
   // MARK: - View Controller Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    configureNavigationBar()
-    setupTableView()
     setupRefreshControl()
   }
-  
 
   private func setupRefreshControl() {
     refreshControl = UIRefreshControl()
@@ -55,18 +45,6 @@ class CompaniesViewController: FetchedResultsTableViewController<String, Company
   
   @objc func refresh() {
     Service.downloadCompanies { self.refreshControl?.endRefreshing() }
-  }
-  
-  // MARK: - Configure Navigation Bar
-  
-  private func configureNavigationBar() {
-    populateContentToNavigationBar()
-  }
-  
-  private func populateContentToNavigationBar() {
-    navigationItem.title = "Companies"
-    setupResetBarButton()
-    setupAddBarButton()
   }
   
   @objc override func reset() {
@@ -82,18 +60,22 @@ class CompaniesViewController: FetchedResultsTableViewController<String, Company
     present(addCompanyNavigationController, animated: true)
   }
   
-  
-  // MARK: - Set Up Table View
-  
-  private func setupTableView() {
-    tableView.backgroundColor = .darkBlue
-    tableView.separatorColor = .white
-    tableView.rowHeight = 50
-    // void the table footer view so that no line appear at the bottom
-    tableView.tableFooterView = UIView()
-//    tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-    tableView.register(CompanyCell.self, forCellReuseIdentifier: ID.companyCell)
-  }
-  
 }
 
+
+extension CompaniesViewController {
+  
+   // MARK: - Table View Delegate
+   
+   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+     let headerView = UIView()
+     headerView.backgroundColor = .lightBlue
+     return headerView
+   }
+ 
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     let employeesController = EmployeesController()
+     employeesController.company = fetchedResultsController.fetchedObjects?[indexPath.row]
+     navigationController?.pushViewController(employeesController, animated: true)
+   }
+}

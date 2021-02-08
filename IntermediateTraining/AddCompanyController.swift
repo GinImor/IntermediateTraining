@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddCompanyController: UIViewController {
+class AddCompanyController: AddCompanyEmployeeController {
   
   var company: Company? {
     didSet {
@@ -23,47 +23,12 @@ class AddCompanyController: UIViewController {
     }
   }
   
-  var image: UIImage? {
-    get { imageView.image }
-    set {
-      imageView.image = newValue
-      setupRoundedImageView()
-    }
-  }
+  lazy var imageView: UIImageView = self.createImageView(getstureRecognizor:
+    UITapGestureRecognizer(target: self, action: #selector(tap)))
   
-  lazy var imageView: UIImageView = {
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
-    
-    imageView.tAMIC = false
-    imageView.contentMode = .scaleAspectFill
-    imageView.isUserInteractionEnabled = true
-    
-    let tapGestureRecognizor = UITapGestureRecognizer(target: self, action: #selector(tap))
-    imageView.addGestureRecognizer(tapGestureRecognizor)
-    
-    return imageView
-  }()
+  var datePicker: UIDatePicker = UIDatePicker.datePicker()
   
-  var nameStackView = TextInputStackView(for: "name")
-  
-  var datePicker: UIDatePicker = {
-    let datePicker = UIDatePicker()
-    
-    datePicker.tAMIC = false
-    datePicker.datePickerMode = .date
-    
-    return datePicker
-  }()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setupAddItemEnvironment()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    nameStackView.readyForInput()
-  }
+  @objc func tap() { self.handleTap() }
   
   override func save() {
     presentingViewController?.dismiss(animated: true) {
@@ -73,16 +38,7 @@ class AddCompanyController: UIViewController {
       else { self.updateCompany() }
     }
   }
-  
-  @objc func tap() {
-    let imagePicker = UIImagePickerController()
-    // remember ask user permision
-    imagePicker.delegate = self
-    imagePicker.allowsEditing = true
-    
-    present(imagePicker, animated: true, completion: nil)
-  }
-  
+
   private func addCompany() {
     CompanyEmployeeCoreDataStack.shared.addCompany(
       name: nameStackView.textInput,
@@ -98,43 +54,29 @@ class AddCompanyController: UIViewController {
       founded: datePicker.date) {}
   }
   
-  private func setupRoundedImageView() {
-    imageView.layer.cornerRadius = imageView.frame.width/2
-    imageView.layer.masksToBounds = true
-    imageView.layer.borderWidth = 2
-    imageView.layer.borderColor = UIColor.darkBlue.cgColor
-  }
-  
 }
 
-extension AddCompanyController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension AddCompanyController: ImagePickerProtocol {}
+
+// image picker protocol
+extension AddCompanyController {
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    picker.presentingViewController?.dismiss(animated: true)
+    self.imagePickerDidCancel(picker)
   }
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    
-    if let editedImage = info[.editedImage] as? UIImage {
-      image = editedImage
-    } else if let originalImage = info[.originalImage] as? UIImage {
-      image = originalImage
-    }
-    
-    picker.presentingViewController?.dismiss(animated: true)
+    self.imagePicker(picker, didFinishPickingMediaWithInfo: info)
   }
 }
 
-extension AddCompanyController: AddItemProtocol {
+// AddItemProtocol
+extension AddCompanyController {
   
   var navitationTitle: String { "Add Company" }
   
   func setupViewsLayout() {
-    let backgroundView = lightBlueBackgroundView()
-    
-    backgroundView.addSubview(imageView)
-    backgroundView.addSubview(nameStackView)
-    backgroundView.addSubview(datePicker)
+    let backgroundView = lightBlueBackgroundView(subViews: [imageView, nameStackView, datePicker])
     
     NSLayoutConstraint.activate([
       imageView.topAnchor.constraint(equalToSystemSpacingBelow: backgroundView.topAnchor, multiplier: 1.0),
@@ -148,11 +90,7 @@ extension AddCompanyController: AddItemProtocol {
       nameStackView.heightAnchor.constraint(equalToConstant: 50),
       
       datePicker.topAnchor.constraint(equalToSystemSpacingBelow: nameStackView.bottomAnchor, multiplier: 1.0),
-      backgroundView.bottomAnchor.constraint(equalTo: datePicker.bottomAnchor),
       datePicker.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
     ])
   }
-  
 }
-
-extension AddCompanyController: LightBlueBackgroundColorProtocol {}

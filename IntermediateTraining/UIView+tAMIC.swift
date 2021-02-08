@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+  
   var tAMIC: Bool {
     get { translatesAutoresizingMaskIntoConstraints }
     set { translatesAutoresizingMaskIntoConstraints = newValue }
@@ -17,5 +18,4 @@ extension UIView {
   func disableTAMIC() {
     tAMIC = false
   }
-  
 }

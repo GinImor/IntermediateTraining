@@ -9,34 +9,14 @@
 import UIKit
 import CoreData
 
-class AddEmployeeController: UIViewController {
+class AddEmployeeController: AddCompanyEmployeeController {
   
   var company: Company!
   var employee: Employee?
   
-  let nameStackView = TextInputStackView(for: "name")
   let birthdayStackView = TextInputStackView(for: "birthday", placeholder: "MM/dd/yyyy")
   
-  var titleSegmentedControl: UISegmentedControl = {
-    let segmentedControl = UISegmentedControl(items: EmployeeTitle.allNames)
-    
-    segmentedControl.disableTAMIC()
-    segmentedControl.selectedSegmentIndex = 0
-    segmentedControl.selectedSegmentTintColor = .darkBlue
-    segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-    
-    return segmentedControl
-  }()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setupAddItemEnvironment()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    nameStackView.readyForInput()
-  }
+  var titleSegmentedControl = UISegmentedControl.employeeSegmentedController
   
   override func save() {
     guard validateInputs() else { return }
@@ -87,22 +67,17 @@ class AddEmployeeController: UIViewController {
     company: company) { (employee) in }
   }
   
-  private func updateEmployee() {
-    
-  }
+  private func updateEmployee() {}
   
 }
 
-extension AddEmployeeController: AddItemProtocol {
+extension AddEmployeeController {
   
   var navitationTitle: String { "Add Employee" }
   
   func setupViewsLayout() {
-    let backgroundView = lightBlueBackgroundView()
-    
-    backgroundView.addSubview(nameStackView)
-    backgroundView.addSubview(birthdayStackView)
-    backgroundView.addSubview(titleSegmentedControl)
+    let backgroundView = lightBlueBackgroundView(
+      subViews: [nameStackView, birthdayStackView, titleSegmentedControl])
     
     NSLayoutConstraint.activate([
       nameStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
@@ -118,12 +93,8 @@ extension AddEmployeeController: AddItemProtocol {
       titleSegmentedControl.topAnchor.constraint(equalTo: birthdayStackView.bottomAnchor),
       titleSegmentedControl.leftAnchor.constraint(equalTo: birthdayStackView.leftAnchor),
       titleSegmentedControl.rightAnchor.constraint(equalTo: birthdayStackView.rightAnchor),
-      
-      backgroundView.bottomAnchor.constraint(equalToSystemSpacingBelow: titleSegmentedControl.bottomAnchor, multiplier: 1.0),
     ])
     
   }
   
 }
-
-extension AddEmployeeController: LightBlueBackgroundColorProtocol {}

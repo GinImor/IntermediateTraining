@@ -8,26 +8,18 @@
 
 import UIKit
 
-protocol AddItemProtocol: class {
-  var navitationTitle: String { get }
+@objc protocol AddItemProtocol {
   func setupViewsAppearance()
-  func setupViewsLayout()
+  @objc optional func setupViewsLayout()
+  @objc optional var navitationTitle: String { get }
 }
 
 extension AddItemProtocol where Self: UIViewController {
     
   func setupAddItemEnvironment() {
-    setupMainUI()
-    populateContentToNavigationBar()
-  }
-  
-  func setupMainUI() {
     setupViewsAppearance()
-    setupViewsLayout()
-  }
-  
-  func setupViewsAppearance() {
-    view.backgroundColor = .darkBlue
+    setupViewsLayout?()
+    populateContentToNavigationBar()
   }
   
   func populateContentToNavigationBar() {
@@ -35,6 +27,5 @@ extension AddItemProtocol where Self: UIViewController {
     setupCancelBarButton()
     setupSaveBarButton()
   }
-
 }
 

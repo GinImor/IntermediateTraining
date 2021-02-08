@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FetchedResultsTableViewController<Section: Hashable, Object: NSManagedObject>: UITableViewController, NSFetchedResultsControllerDelegate {
+class FetchedResultsTableViewController<Object: NSManagedObject>: UITableViewController, NSFetchedResultsControllerDelegate {
   
   // MARK: - Properties and Functions Subclass must Override
   
@@ -65,7 +65,6 @@ class FetchedResultsTableViewController<Section: Hashable, Object: NSManagedObje
    
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
     fetchData()
   }
   
