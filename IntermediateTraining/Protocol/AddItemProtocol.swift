@@ -2,7 +2,7 @@
 //  AddItemProtocol.swift
 //  IntermediateTraining
 //
-//  Created by Gin Imor on 2/3/21.
+//  Created by Gin Imor on 2/8/21.
 //  Copyright © 2021 Brevity. All rights reserved.
 //
 
@@ -28,4 +28,5 @@ extension AddItemProtocol where Self: UIViewController {
     setupSaveBarButton()
   }
 }
+
 

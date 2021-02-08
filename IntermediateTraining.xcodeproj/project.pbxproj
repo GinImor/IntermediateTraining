@@ -19,8 +19,9 @@
 		DC27DCD025CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */; };
 		DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */; };
 		DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */; };
-		DC7C776325D14B05008D4E4D /* AddItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C776225D14B05008D4E4D /* AddItemProtocol.swift */; };
 		DC7C776625D14B42008D4E4D /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C776525D14B41008D4E4D /* IndentedLabel.swift */; };
+		DC7C776A25D14DC2008D4E4D /* AddItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C776925D14DC2008D4E4D /* AddItemProtocol.swift */; };
+		DC7C776C25D14DED008D4E4D /* ImagePickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C776B25D14DED008D4E4D /* ImagePickerProtocol.swift */; };
 		DC7D8EC725CE6FCD0006C7D9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D8EC625CE6FCD0006C7D9 /* Service.swift */; };
 		DC7D8EC925CE75220006C7D9 /* JSONCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */; };
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
@@ -38,7 +39,6 @@
 		DCF7F72425CA991E00432910 /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72325CA991E00432910 /* EmployeesController.swift */; };
 		DCF7F72825CAA21600432910 /* UIViewController+barButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */; };
 		DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72925CAA7EB00432910 /* AddEmployeeController.swift */; };
-		DCF7F72C25CAAD1700432910 /* AddItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */; };
 		DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +57,9 @@
 		DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditableRowsDiffableDataSource.swift; path = IntermediateTraining/Utility/EditableRowsDiffableDataSource.swift; sourceTree = SOURCE_ROOT; };
 		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmployeeTitle.swift; path = IntermediateTraining/Utility/EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
 		DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
-		DC7C776225D14B05008D4E4D /* AddItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemProtocol.swift; sourceTree = "<group>"; };
 		DC7C776525D14B41008D4E4D /* IndentedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = "<group>"; };
+		DC7C776925D14DC2008D4E4D /* AddItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemProtocol.swift; sourceTree = "<group>"; };
+		DC7C776B25D14DED008D4E4D /* ImagePickerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerProtocol.swift; sourceTree = "<group>"; };
 		DC7D8EC625CE6FCD0006C7D9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONCompany.swift; path = IntermediateTraining/Model/JSONCompany.swift; sourceTree = SOURCE_ROOT; };
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		DCF7F72325CA991E00432910 /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
 		DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+barButtonItem.swift"; sourceTree = "<group>"; };
 		DCF7F72925CAA7EB00432910 /* AddEmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeController.swift; sourceTree = "<group>"; };
-		DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemProtocol.swift; sourceTree = "<group>"; };
 		DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightBlueBackgroundColorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,9 +174,9 @@
 		DC7C776125D14A6F008D4E4D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */,
-				DC7C776225D14B05008D4E4D /* AddItemProtocol.swift */,
 				DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */,
+				DC7C776925D14DC2008D4E4D /* AddItemProtocol.swift */,
+				DC7C776B25D14DED008D4E4D /* ImagePickerProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -292,21 +292,21 @@
 				DC7C776625D14B42008D4E4D /* IndentedLabel.swift in Sources */,
 				DCF7F72225CA64CC00432910 /* CompanyCoreDataStack.swift in Sources */,
 				DCF1C7D525D130BF008AA96F /* Constants.swift in Sources */,
-				DCF7F72C25CAAD1700432910 /* AddItemProtocol.swift in Sources */,
 				DCF1C7D225D12F6D008AA96F /* JSONEmployee.swift in Sources */,
 				DCF7F72425CA991E00432910 /* EmployeesController.swift in Sources */,
 				DCF1C7C225D0E940008AA96F /* CompanyEmployeController.swift in Sources */,
 				DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */,
 				DCF1C7C825D11CF6008AA96F /* UIDatePicker+datePicker.swift in Sources */,
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
+				DC7C776C25D14DED008D4E4D /* ImagePickerProtocol.swift in Sources */,
 				DCF1C7C425D1100E008AA96F /* AddCompanyEmployeeController.swift in Sources */,
 				DCF7F71425CA432200432910 /* CompanyCell.swift in Sources */,
+				DC7C776A25D14DC2008D4E4D /* AddItemProtocol.swift in Sources */,
 				DC09072925C537DA001A1D29 /* UIImage+colorConstructor.swift in Sources */,
 				DC7D8EC925CE75220006C7D9 /* JSONCompany.swift in Sources */,
 				DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */,
 				DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */,
 				DC7D8EC725CE6FCD0006C7D9 /* Service.swift in Sources */,
-				DC7C776325D14B05008D4E4D /* AddItemProtocol.swift in Sources */,
 				DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */,
 				DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */,
 				DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */,
