@@ -17,9 +17,10 @@
 		DC2342DC25C6979900C4E047 /* TextInputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2342DB25C6979900C4E047 /* TextInputStackView.swift */; };
 		DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */; };
 		DC27DCD025CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */; };
-		DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */; };
 		DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */; };
 		DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */; };
+		DC7C776325D14B05008D4E4D /* AddItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C776225D14B05008D4E4D /* AddItemProtocol.swift */; };
+		DC7C776625D14B42008D4E4D /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C776525D14B41008D4E4D /* IndentedLabel.swift */; };
 		DC7D8EC725CE6FCD0006C7D9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D8EC625CE6FCD0006C7D9 /* Service.swift */; };
 		DC7D8EC925CE75220006C7D9 /* JSONCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */; };
 		DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */; };
@@ -27,7 +28,6 @@
 		DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */; };
 		DCF1C7C225D0E940008AA96F /* CompanyEmployeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1C7C125D0E940008AA96F /* CompanyEmployeController.swift */; };
 		DCF1C7C425D1100E008AA96F /* AddCompanyEmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1C7C325D1100E008AA96F /* AddCompanyEmployeeController.swift */; };
-		DCF1C7C625D118A7008AA96F /* ImagePickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1C7C525D118A7008AA96F /* ImagePickerProtocol.swift */; };
 		DCF1C7C825D11CF6008AA96F /* UIDatePicker+datePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1C7C725D11CF6008AA96F /* UIDatePicker+datePicker.swift */; };
 		DCF1C7CC25D122C2008AA96F /* UISegmentedController+employeeTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1C7CB25D122C2008AA96F /* UISegmentedController+employeeTitles.swift */; };
 		DCF1C7D225D12F6D008AA96F /* JSONEmployee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1C7D125D12F6D008AA96F /* JSONEmployee.swift */; };
@@ -54,20 +54,20 @@
 		DC09072C25C5974E001A1D29 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
 		DC2342DB25C6979900C4E047 /* TextInputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputStackView.swift; sourceTree = "<group>"; };
 		DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyEmployeeCoreDataStack.swift; sourceTree = "<group>"; };
-		DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditableRowsDiffableDataSource.swift; path = IntermediateTraining/EditableRowsDiffableDataSource.swift; sourceTree = SOURCE_ROOT; };
-		DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IndentedLabel.swift; path = IntermediateTraining/IndentedLabel.swift; sourceTree = SOURCE_ROOT; };
-		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmployeeTitle.swift; path = IntermediateTraining/EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
+		DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditableRowsDiffableDataSource.swift; path = IntermediateTraining/Utility/EditableRowsDiffableDataSource.swift; sourceTree = SOURCE_ROOT; };
+		DC40BFFC25CC20DF004F6EA6 /* EmployeeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmployeeTitle.swift; path = IntermediateTraining/Utility/EmployeeTitle.swift; sourceTree = SOURCE_ROOT; };
 		DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
+		DC7C776225D14B05008D4E4D /* AddItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemProtocol.swift; sourceTree = "<group>"; };
+		DC7C776525D14B41008D4E4D /* IndentedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = "<group>"; };
 		DC7D8EC625CE6FCD0006C7D9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONCompany.swift; path = IntermediateTraining/JSONCompany.swift; sourceTree = SOURCE_ROOT; };
+		DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONCompany.swift; path = IntermediateTraining/Model/JSONCompany.swift; sourceTree = SOURCE_ROOT; };
 		DCA2DC3A25C6DE3D00603C08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+tAMIC.swift"; sourceTree = "<group>"; };
-		DCF1C7C125D0E940008AA96F /* CompanyEmployeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyEmployeController.swift; path = IntermediateTraining/CompanyEmployeController.swift; sourceTree = SOURCE_ROOT; };
+		DCF1C7C125D0E940008AA96F /* CompanyEmployeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyEmployeController.swift; path = IntermediateTraining/Controllers/CompanyEmployeController.swift; sourceTree = SOURCE_ROOT; };
 		DCF1C7C325D1100E008AA96F /* AddCompanyEmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyEmployeeController.swift; sourceTree = "<group>"; };
-		DCF1C7C525D118A7008AA96F /* ImagePickerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePickerProtocol.swift; path = IntermediateTraining/Protocols/ImagePickerProtocol.swift; sourceTree = SOURCE_ROOT; };
 		DCF1C7C725D11CF6008AA96F /* UIDatePicker+datePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker+datePicker.swift"; sourceTree = "<group>"; };
-		DCF1C7CB25D122C2008AA96F /* UISegmentedController+employeeTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UISegmentedController+employeeTitles.swift"; path = "IntermediateTraining/UISegmentedController+employeeTitles.swift"; sourceTree = SOURCE_ROOT; };
+		DCF1C7CB25D122C2008AA96F /* UISegmentedController+employeeTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UISegmentedController+employeeTitles.swift"; path = "IntermediateTraining/Extensions/UISegmentedController+employeeTitles.swift"; sourceTree = SOURCE_ROOT; };
 		DCF1C7D125D12F6D008AA96F /* JSONEmployee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEmployee.swift; sourceTree = "<group>"; };
 		DCF1C7D425D130BF008AA96F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCF7F71325CA432200432910 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
@@ -110,20 +110,20 @@
 		DC09071325C4F082001A1D29 /* IntermediateTraining */ = {
 			isa = PBXGroup;
 			children = (
-				DCF1C7D625D1310F008AA96F /* Extensions */,
-				DCF1C7D325D12F85008AA96F /* Controllers */,
-				DCF1C7D025D12F46008AA96F /* Model */,
-				DCF1C7CF25D12ED7008AA96F /* Protocols */,
-				DCF1C7CE25D12E2D008AA96F /* Views */,
-				DCF7F72025CA64A600432910 /* CoreDataStack */,
-				DCF7F71A25CA5F7100432910 /* Utility */,
-				DCF1C7CD25D12A7E008AA96F /* Supporting Files */,
+				DC7C776825D14B7A008D4E4D /* Utility */,
+				DC7C776725D14B53008D4E4D /* CoreDataStack */,
+				DC7C776425D14B1B008D4E4D /* Views */,
+				DC7C776125D14A6F008D4E4D /* Protocol */,
+				DC7C776025D14A43008D4E4D /* Model */,
+				DC7C775F25D14A28008D4E4D /* Controllers */,
+				DC7C775E25D14A04008D4E4D /* Extensions */,
+				DC7C775D25D149E3008D4E4D /* Supporting Files */,
 				DC09072225C4F083001A1D29 /* Info.plist */,
 			);
 			path = IntermediateTraining;
 			sourceTree = "<group>";
 		};
-		DCF1C7CD25D12A7E008AA96F /* Supporting Files */ = {
+		DC7C775D25D149E3008D4E4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				DCA2DC3925C6DE3D00603C08 /* Model.xcdatamodeld */,
@@ -132,39 +132,23 @@
 				DC09071D25C4F083001A1D29 /* Assets.xcassets */,
 				DC09071F25C4F083001A1D29 /* LaunchScreen.storyboard */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DCF1C7CE25D12E2D008AA96F /* Views */ = {
+		DC7C775E25D14A04008D4E4D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC40BFFA25CBF5A5004F6EA6 /* IndentedLabel.swift */,
-				DCF7F71325CA432200432910 /* CompanyCell.swift */,
-				DC2342DB25C6979900C4E047 /* TextInputStackView.swift */,
+				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
+				DCF1C7C725D11CF6008AA96F /* UIDatePicker+datePicker.swift */,
+				DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */,
+				DCF1C7CB25D122C2008AA96F /* UISegmentedController+employeeTitles.swift */,
+				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
+				DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */,
 			);
-			name = Views;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DCF1C7CF25D12ED7008AA96F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				DCF1C7C525D118A7008AA96F /* ImagePickerProtocol.swift */,
-				DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */,
-				DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		DCF1C7D025D12F46008AA96F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */,
-				DCF1C7D125D12F6D008AA96F /* JSONEmployee.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		DCF1C7D325D12F85008AA96F /* Controllers */ = {
+		DC7C775F25D14A28008D4E4D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				DC5CE4A825CCEC0800BC22EE /* FetchedResultsTableViewController.swift */,
@@ -175,23 +159,49 @@
 				DC09072C25C5974E001A1D29 /* AddCompanyController.swift */,
 				DCF7F72925CAA7EB00432910 /* AddEmployeeController.swift */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		DCF1C7D625D1310F008AA96F /* Extensions */ = {
+		DC7C776025D14A43008D4E4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DCD06F6325C6457E00D573BE /* UIView+tAMIC.swift */,
-				DCF1C7C725D11CF6008AA96F /* UIDatePicker+datePicker.swift */,
-				DCF7F71725CA4AE000432910 /* DateFormatter+customInstance.swift */,
-				DCF1C7CB25D122C2008AA96F /* UISegmentedController+employeeTitles.swift */,
-				DC09072825C537DA001A1D29 /* UIImage+colorConstructor.swift */,
-				DCF7F72725CAA21600432910 /* UIViewController+barButtonItem.swift */,
+				DC7D8EC825CE75220006C7D9 /* JSONCompany.swift */,
+				DCF1C7D125D12F6D008AA96F /* JSONEmployee.swift */,
 			);
-			name = Extensions;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		DCF7F71A25CA5F7100432910 /* Utility */ = {
+		DC7C776125D14A6F008D4E4D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7F72B25CAAD1700432910 /* AddItemProtocol.swift */,
+				DC7C776225D14B05008D4E4D /* AddItemProtocol.swift */,
+				DCF7F72D25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		DC7C776425D14B1B008D4E4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC7C776525D14B41008D4E4D /* IndentedLabel.swift */,
+				DCF7F71325CA432200432910 /* CompanyCell.swift */,
+				DC2342DB25C6979900C4E047 /* TextInputStackView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC7C776725D14B53008D4E4D /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */,
+				DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */,
+				DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		DC7C776825D14B7A008D4E4D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				DC7D8EC625CE6FCD0006C7D9 /* Service.swift */,
@@ -199,17 +209,7 @@
 				DCF1C7D425D130BF008AA96F /* Constants.swift */,
 				DC27DCCF25CE2DCB008D3FD8 /* EditableRowsDiffableDataSource.swift */,
 			);
-			name = Utility;
-			sourceTree = "<group>";
-		};
-		DCF7F72025CA64A600432910 /* CoreDataStack */ = {
-			isa = PBXGroup;
-			children = (
-				DCA2DC3C25C6DF4400603C08 /* CoreDataStack.swift */,
-				DCF7F72125CA64CC00432910 /* CompanyCoreDataStack.swift */,
-				DC264F3A25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift */,
-			);
-			name = CoreDataStack;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,14 +289,13 @@
 				DC09071925C4F082001A1D29 /* CompaniesViewController.swift in Sources */,
 				DC09071525C4F082001A1D29 /* AppDelegate.swift in Sources */,
 				DCA2DC3D25C6DF4400603C08 /* CoreDataStack.swift in Sources */,
+				DC7C776625D14B42008D4E4D /* IndentedLabel.swift in Sources */,
 				DCF7F72225CA64CC00432910 /* CompanyCoreDataStack.swift in Sources */,
-				DCF1C7C625D118A7008AA96F /* ImagePickerProtocol.swift in Sources */,
 				DCF1C7D525D130BF008AA96F /* Constants.swift in Sources */,
 				DCF7F72C25CAAD1700432910 /* AddItemProtocol.swift in Sources */,
 				DCF1C7D225D12F6D008AA96F /* JSONEmployee.swift in Sources */,
 				DCF7F72425CA991E00432910 /* EmployeesController.swift in Sources */,
 				DCF1C7C225D0E940008AA96F /* CompanyEmployeController.swift in Sources */,
-				DC40BFFB25CBF5A5004F6EA6 /* IndentedLabel.swift in Sources */,
 				DC40BFFD25CC20DF004F6EA6 /* EmployeeTitle.swift in Sources */,
 				DCF1C7C825D11CF6008AA96F /* UIDatePicker+datePicker.swift in Sources */,
 				DCD06F6425C6457E00D573BE /* UIView+tAMIC.swift in Sources */,
@@ -307,6 +306,7 @@
 				DCA2DC3B25C6DE3D00603C08 /* Model.xcdatamodeld in Sources */,
 				DCF7F72A25CAA7EB00432910 /* AddEmployeeController.swift in Sources */,
 				DC7D8EC725CE6FCD0006C7D9 /* Service.swift in Sources */,
+				DC7C776325D14B05008D4E4D /* AddItemProtocol.swift in Sources */,
 				DC264F3B25CB8CE600EA4965 /* CompanyEmployeeCoreDataStack.swift in Sources */,
 				DC5CE4A925CCEC0800BC22EE /* FetchedResultsTableViewController.swift in Sources */,
 				DCF7F72E25CAED2F00432910 /* LightBlueBackgroundColorProtocol.swift in Sources */,
